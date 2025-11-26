@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XEC Army NFT — Official</title>
+  <meta name="description" content="XEC Army NFT — a curated digital project operating at the edge of art, code, and the eCash universe. This platform reveals our creations, updates, and direction… but only to those who choose to look deeper." />
+  <meta name="author" content="XEC Army NFT" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="XEC Army NFT" />
+  <meta property="og:description" content="A cryptic digital collective rooted in the eCash network — art, utility and a hidden path forward." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://xecarmynft.xyz/" />
+  <meta property="og:image" content="/assets/preview.png" />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --panel:#0f1112;
+      --muted:#9aa0a6;
+      --accent:#d9d9d9;
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#050506 0%,var(--bg) 60%);color:var(--accent);}
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,#111 0%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);letter-spacing:1px;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+    .title{line-height:1}
+    h1{margin:0;font-size:22px}
+    .subtitle{font-size:13px;color:var(--muted);margin-top:4px}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:30px;margin-top:34px;align-items:center}
+    .card{background:var(--panel);padding:28px;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.02)}
+
+    .lead{font-size:18px;line-height:1.5;color:var(--accent)}
+    .lead small{display:block;color:var(--muted);margin-top:10px}
+
+    .preview{height:320px;border-radius:10px;background-image:linear-gradient(160deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;border:1px dashed rgba(255,255,255,0.03)}
+
+    .cta{margin-top:18px;display:flex;gap:10px}
+    .btn{padding:12px 16px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer;color:var(--accent);font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,#0f0f10,#1a1a1a);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .panel{padding:18px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+
+    footer{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media (max-width:1000px){.hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">XEC</div>
+        <div class="title">
+          <h1>XEC Army NFT</h1>
+          <div class="subtitle">A cryptic collective rooted in the eCash network</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#collection">Collection</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <div class="lead">
+          <strong>Welcome to the veil.</strong>
+          <small>This is the official hub for XEC Army NFT — a curated digital project operating at the edge of art, code, and the eCash universe. Our work unfolds in layers: art releases, utility drops, and quiet signals to the community. Explore with care.</small>
+        </div>
+
+        <div class="cta">
+          <button class="btn primary" onclick="openSection('collection')">Explore Collection</button>
+          <button class="btn" onclick="openSection('roadmap')">View Roadmap</button>
+        </div>
+
+        <div class="grid">
+          <div class="panel"><strong>Latest</strong><div style="margin-top:8px;color:var(--muted);font-size:14px">Mint announcements & releases appear here.</div></div>
+          <div class="panel"><strong>Utility</strong><div style="margin-top:8px;color:var(--muted);font-size:14px">Staking, holder benefits & integrations.</div></div>
+          <div class="panel"><strong>Community</strong><div style="margin-top:8px;color:var(--muted);font-size:14px">Join our channels and become part of the collective.</div></div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="preview">
+          <div>
+            <div style="font-weight:700;margin-bottom:8px">XEC ARMY — Preview</div>
+            <div style="font-size:12px;color:var(--muted)">Drop artwork, collection thumbnails, or your logo at <code>/assets/preview.png</code></div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">Domain: <strong>xecarmynft.xyz</strong></div>
+        <div style="margin-top:8px;color:var(--muted);font-size:13px">Hosting: <strong>GitHub Pages</strong> — free SSL included</div>
+      </aside>
+    </section>
+
+    <section id="about" class="card" style="margin-top:22px">
+      <h2 style="margin-top:0">About</h2>
+      <p style="color:var(--muted);line-height:1.6">XEC Army NFT is a creative blockchain project supporting the eCash ecosystem. We blend digital art, utility, and community-driven governance. Membership and access will be granted through curated mints and on-chain signals. This site acts as the authoritative source for announcements, drops, and governance notes.</p>
+    </section>
+
+    <section id="collection" style="margin-top:18px">
+      <div class="card">
+        <h2 style="margin-top:0">Collection</h2>
+        <p style="color:var(--muted);line-height:1.6">Collection thumbnails and minting interfaces will be added here. For now, holders and early supporters are directed to our social channels for private access.</p>
+      </div>
+    </section>
+
+    <section id="roadmap" style="margin-top:18px">
+      <div class="card">
+        <h2 style="margin-top:0">Roadmap</h2>
+        <ol style="color:var(--muted);line-height:1.6">
+          <li>Phase 1 — Concept, artwork curation, early whitelist.</li>
+          <li>Phase 2 — Public mint, utility smart contracts, holder dashboard.</li>
+          <li>Phase 3 — Integrations, staking, collaborations across the eCash ecosystem.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px">
+      <div class="card">
+        <h2 style="margin-top:0">Contact</h2>
+        <p style="color:var(--muted);line-height:1.6">For partnership and press inquiries, contact: <strong>contact@xecarmynft.xyz</strong> (create this mailbox in your Namecheap account or forward it to your email).</p>
+        <div style="margin-top:12px">
+          <a href="https://x.com/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none">Twitter</a> • 
+          <a href="#" style="color:var(--muted);text-decoration:none">Discord</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> XEC Army NFT — Built on eCash. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function openSection(id){
+      const el = document.getElementById(id);
+      if(!el) return window.scrollTo({top:0,behavior:'smooth'});
+      window.scrollTo({top: el.offsetTop - 20, behavior: 'smooth'});
+    }
+  </script>
+</body>
+</html>
