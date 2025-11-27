@@ -4,92 +4,107 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XEC ARMY NFT</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #05050a;
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
-    .slogan {
-      font-size: 1.2rem;
-      color: #888;
-      margin-top: 10px;
-    }
-    .social-icons {
-      margin-top: 20px;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      color: #000;
-      text-decoration: none;
-    }
-    .social-icons a:hover {
-      color: #ff6600;
-    }
-
-    /* Donate button */
-    .donate-button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 30px;
-      font-size: 1rem;
       color: #fff;
-      background-color: #ff6600;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .donate-button:hover {
-      background-color: #e05500;
-    }
-
-    /* Loading bar container */
-    .loading-container {
-      width: 100%;
-      max-width: 400px;
-      height: 20px;
-      background-color: #ddd;
-      border-radius: 10px;
-      margin: 40px auto;
+      text-align: center;
       overflow: hidden;
     }
-    .loading-bar {
-      height: 100%;
-      width: 0;
-      background-color: #ff6600;
-      border-radius: 10px;
-      animation: load 3s forwards;
+
+    h1 {
+      font-size: 60px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-shadow: 0 0 10px #6b4dff, 0 0 20px #6b4dff;
+      margin-bottom: 60px;
     }
-    @keyframes load {
-      0% { width: 0; }
-      100% { width: 100%; }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    a.button {
+      padding: 15px 35px;
+      font-size: 18px;
+      border-radius: 8px;
+      background: #0f0f15;
+      border: 1px solid #6b4dff;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 0 10px #6b4dff33;
+      transition: 0.2s ease;
+    }
+
+    a.button:hover {
+      background: #6b4dff;
+      box-shadow: 0 0 15px #6b4dff, 0 0 30px #6b4dff;
+    }
+
+    /* Neon floating particles background effect */
+    .glow {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: #6b4dff;
+      filter: blur(120px);
+      opacity: 0.1;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    .glow2 {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: #9a00ff;
+      filter: blur(150px);
+      opacity: 0.12;
+      animation: float2 10s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { top: 20%; left: 10%; }
+      50% { top: 40%; left: 30%; }
+      100% { top: 20%; left: 10%; }
+    }
+
+    @keyframes float2 {
+      0% { bottom: 15%; right: 5%; }
+      50% { bottom: 30%; right: 25%; }
+      100% { bottom: 15%; right: 5%; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>XEC ARMY NFT</h1>
-    <p class="slogan">The largest NFT collections</p>
 
-    <!-- Social icons -->
-    <div class="social-icons">
-      <a href="https://t.me/Nabzzzz00" target="_blank">
-        <i class="fab fa-telegram fa-2x"></i>
-      </a>
-      <a href="https://x.com/psyman169" target="_blank">
-        <i class="fab fa-twitter fa-2x"></i>
-      </a>
-    </div>
+  <!-- Neon background glows -->
+  <div class="glow"></div>
+  <div class="glow2"></div>
 
-    <!-- Donate button -->
-    <a class="donate-button" href="ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">Donate</a>
+  <!-- Main Content -->
+  <h1>WELCOME TO XEC ARMY NFT</h1>
 
-    <!-- Loading bar -->
-    <div class="loading-container">
-      <div class="loading-bar"></div>
-    </div>
-  </header>
+  <div class="buttons">
+    <a class="button" 
+       href="https://cashtab.com/pay?to=ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" 
+       target="_blank">
+       Donate
+    </a>
+
+    <a class="button" href="page2.html">
+      Enter
+    </a>
+  </div>
+
 </body>
 </html>
