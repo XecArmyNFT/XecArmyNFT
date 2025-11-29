@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XEC ARMY Dynamic Mosaic</title>
+<title>XEC ARMY Full-Screen Mosaic</title>
 <style>
   body, html {
     margin: 0;
@@ -12,28 +12,25 @@
     background: black;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   #grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    grid-auto-rows: 80px;
-    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-auto-rows: 120px;
+    gap: 0;
     width: 100vw;
     height: 100vh;
-    padding: 10px;
-    position: relative;
+    padding: 0;
+    margin: 0;
   }
 
   .nft {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover; /* fill cell completely */
     opacity: 0.2;
-    filter: drop-shadow(0 0 10px cyan) blur(2px);
+    filter: drop-shadow(0 0 15px cyan) blur(2px);
     mix-blend-mode: screen;
     position: relative;
     animation: pulse 4s infinite alternate, drift 10s infinite linear;
@@ -47,11 +44,11 @@
   }
 
   @keyframes pulse {
-    0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 10px cyan) blur(2px); }
-    25% { transform: scale(1.05) rotate(2deg); filter: drop-shadow(0 0 10px magenta) blur(2px); }
-    50% { transform: scale(1.1) rotate(-2deg); filter: drop-shadow(0 0 10px lime) blur(2px); }
-    75% { transform: scale(1.05) rotate(1deg); filter: drop-shadow(0 0 10px yellow) blur(2px); }
-    100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 10px cyan) blur(2px); }
+    0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 15px cyan) blur(2px); }
+    25% { transform: scale(1.05) rotate(2deg); filter: drop-shadow(0 0 15px magenta) blur(2px); }
+    50% { transform: scale(1.1) rotate(-2deg); filter: drop-shadow(0 0 15px lime) blur(2px); }
+    75% { transform: scale(1.05) rotate(1deg); filter: drop-shadow(0 0 15px yellow) blur(2px); }
+    100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 15px cyan) blur(2px); }
   }
 
   @keyframes drift {
@@ -65,10 +62,8 @@
   /* Mobile optimization */
   @media (max-width: 600px) {
     #grid {
-      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-      grid-auto-rows: 60px;
-      gap: 5px;
-      padding: 5px;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      grid-auto-rows: 80px;
     }
   }
 </style>
@@ -90,6 +85,16 @@ for (let i = 0; i < totalImages; i++) {
   img.style.animationDelay = `${Math.random() * 4}s, ${Math.random() * 10}s`;
 
   grid.appendChild(img);
+}
+
+// Duplicate images to fill remaining cells and cover full screen
+const cellsNeeded = Math.ceil((window.innerWidth / 120) * (window.innerHeight / 120));
+const currentCount = grid.children.length;
+
+for (let i = currentCount; i < cellsNeeded; i++) {
+  const clone = grid.children[i % totalImages].cloneNode();
+  clone.style.animationDelay = `${Math.random() * 4}s, ${Math.random() * 10}s`;
+  grid.appendChild(clone);
 }
 </script>
 
