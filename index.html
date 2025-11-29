@@ -90,21 +90,21 @@
       margin: 0 auto;
     }
 
-    .hero-title {
-      font-size: 1.8em;
-      margin: 10px 0 0 0;
+    .hero-text h1 {
+      font-size: 2.2em;       /* big title */
+      margin: 15px 0 5px 0;   /* spacing below */
     }
 
-    .hero-sub {
-      font-size: 1.2em;
-      margin: 5px 0 0 0;
+    .hero-text p.hero-sub {
+      font-size: 1.2em;       /* smaller slogan */
+      margin: 5px 0 10px 0;
+      color: #ffcc00;         /* optional: make slogan color stand out */
     }
 
-    .hero-desc {
-      font-size: 1em;
-      color: #cccccc;
-      margin: 10px 0 0 0;
-      line-height: 1.5;
+    .hero-text p.hero-desc {
+      font-size: 1.5em;       /* launching soon text */
+      margin: 10px 0 15px 0;
+      font-weight: bold;
     }
 
     .launch-wrap {
@@ -138,7 +138,7 @@
 
     @keyframes pulseBar {
       0% { width: 50%; }
-      100% { width: 50.5%; }
+      100% { width: 50.5%; } /* subtle pulsation */
     }
 
     .donate-wrap {
@@ -218,7 +218,6 @@
       background: #111;
       color: #fff;
     }
-
   </style>
 </head>
 <body>
@@ -242,7 +241,7 @@
 
       <!-- Text under character -->
       <div class="hero-text">
-        <h1 class="hero-title">WELCOME TO XEC ARMY, THE LARGEST XEC NFT COLLECTION</h1>
+        <h1>WELCOME TO XEC ARMY</h1>
         <p class="hero-sub">The Largest NFTs Collections</p>
         <p class="hero-desc">WE ARE LAUNCHING SOON</p>
 
