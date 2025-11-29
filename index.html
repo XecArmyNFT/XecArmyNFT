@@ -78,11 +78,11 @@
     .hero-left img {
       max-width: 300px;
       margin: 0 auto;
-      border-radius: 50%;
+      border-radius: 50%; /* circular */
       border: 4px solid #00dfff;
       padding: 5px;
       box-shadow: 0 0 15px #00dfff, 0 0 30px #00dfff, 0 0 45px #00dfff;
-      animation: breatheGlow 4s infinite ease-in-out;
+      animation: breatheGlow 4s infinite ease-in-out; /* slow breathing effect */
     }
 
     @keyframes breatheGlow {
@@ -153,12 +153,12 @@
       margin-top: 15px;
       position: relative;
       display: flex;
+      gap: 10px; /* space between Donate and Raffle button */
       justify-content: center;
-      gap: 15px; /* space between Donate & Raffle buttons */
       flex-wrap: wrap;
     }
 
-    .donate-btn {
+    .donate-btn, .raffle-btn {
       padding: 10px 25px;
       font-size: 16px;
       background: #ffcc00;
@@ -167,9 +167,14 @@
       cursor: pointer;
       font-weight: bold;
       transition: background 0.3s;
+      text-decoration: none;
+      color: #000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .donate-btn:hover {
+    .donate-btn:hover, .raffle-btn:hover {
       background: #ffb800;
     }
 
@@ -224,26 +229,6 @@
       margin-right: 8px;
     }
 
-    .raffle-btn {
-      padding: 10px 25px;
-      font-size: 16px;
-      background: #00dfff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      color: #000;
-      transition: background 0.3s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .raffle-btn:hover {
-      background: #00b8cc;
-    }
-
     .site-footer {
       text-align: center;
       padding: 15px;
@@ -284,13 +269,12 @@
         </div>
 
         <div class="donate-wrap">
-          <!-- Donate Button with XEC fixed for CashTab -->
           <button onclick="toggleDonationOptions()" class="donate-btn">DONATE</button>
+          <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" class="raffle-btn" target="_blank">XEC RAFFLE</a>
           <div id="donationOptions">
             <ul>
               <li>
-                <!-- XEC donation: opens CashTab wallet app -->
-                <a href="ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
+                <a href="ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh">
                   <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ecash/standard.png" alt="XEC logo" />
                   XEC
                 </a>
@@ -309,11 +293,6 @@
               </li>
             </ul>
           </div>
-
-          <!-- XEC Raffle Button -->
-          <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" target="_blank" class="raffle-btn">
-            XEC RAFFLE
-          </a>
         </div>
       </div>
     </div>
