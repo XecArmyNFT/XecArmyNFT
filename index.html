@@ -41,11 +41,30 @@
     opacity: 1;
   }
 
+  /* Logo in center */
+  #logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 300px; /* adjust as needed */
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    z-index: 10;
+    filter: drop-shadow(0 0 20px cyan);
+  }
+
   /* Mobile optimization */
   @media (max-width: 600px) {
     #grid {
       grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
       grid-auto-rows: 80px;
+    }
+
+    #logo {
+      max-width: 150px;
+      max-height: 150px;
     }
   }
 </style>
@@ -53,6 +72,7 @@
 <body>
 
 <div id="grid"></div>
+<img src="logo.png" id="logo" alt="XEC ARMY Logo">
 
 <script>
 const totalImages = 26;
