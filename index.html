@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>XEC ARMY NFT</title>
   <link rel="stylesheet" href="style.css">
   <style>
@@ -10,6 +10,7 @@
       margin: 0;
       padding: 0;
       width: 100%;
+      min-height: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
       color: #fff;
@@ -24,7 +25,7 @@
       background: transparent;
     }
 
-    /* Full-screen slideshow background (fade effect) */
+    /* Full-screen fade slideshow background */
     .slideshow-bg {
       position: fixed;
       top: 0;
@@ -39,26 +40,27 @@
       transition: opacity 1s ease-in-out;
     }
 
-    /* Keep all your existing CSS exactly the same */
+    /* Header */
     .site-header {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 10px 20px;
+      padding: 2vw;
       background: transparent;
       color: #fff;
     }
 
     .site-header .logo img {
-      width: 210px;
+      width: 40vw;  /* scales with viewport */
+      max-width: 210px;
       height: auto;
       display: block;
     }
 
     .nav {
       display: flex;
-      gap: 30px;
+      gap: 5vw;
       flex-wrap: wrap;
       justify-content: center;
     }
@@ -66,59 +68,64 @@
     .nav a {
       color: #fff;
       text-decoration: none;
-      padding: 5px 10px;
+      padding: 0.5vw 1vw;
       font-weight: bold;
+      font-size: 4vw;
+      max-font-size: 16px;
     }
 
     .nav a.active {
       text-decoration: underline;
     }
 
+    /* Hero Section */
     .hero {
-      padding: 20px;
+      min-height: 80vh; /* fills screen */
       display: flex;
       justify-content: center;
+      align-items: center;
+      padding: 2vw;
     }
 
     .hero-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 600px;
+      max-width: 90%;
       width: 100%;
-      gap: 15px;
+      gap: 2vw;
       text-align: center;
     }
 
     .hero-left img {
+      width: 50vw;  /* scales with screen */
       max-width: 300px;
-      margin: 0 auto;
       border-radius: 50%;
-      border: 4px solid #00dfff;
-      padding: 5px;
-      box-shadow: 0 0 15px #00dfff, 0 0 30px #00dfff, 0 0 45px #00dfff;
+      border: 0.5vw solid #00dfff;
+      padding: 0.5vw;
+      box-shadow: 0 0 1vw #00dfff, 0 0 2vw #00dfff, 0 0 3vw #00dfff;
       animation: breatheGlow 4s infinite ease-in-out;
     }
 
     @keyframes breatheGlow {
-      0% { box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff; }
-      50% { box-shadow: 0 0 25px #00dfff, 0 0 50px #00dfff, 0 0 75px #00dfff; }
-      100% { box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff; }
+      0% { box-shadow: 0 0 0.5vw #00dfff, 0 0 1vw #00dfff, 0 0 1.5vw #00dfff; }
+      50% { box-shadow: 0 0 1.25vw #00dfff, 0 0 2.5vw #00dfff, 0 0 3.75vw #00dfff; }
+      100% { box-shadow: 0 0 0.5vw #00dfff, 0 0 1vw #00dfff, 0 0 1.5vw #00dfff; }
     }
 
-    .hero-title { font-size: 2.2em; margin: 15px 0 5px 0; font-weight: bold; }
-    .hero-sub { font-size: 1.2em; margin: 5px 0 10px 0; color: #ffcc00; }
-    .hero-desc { font-size: 1.5em; margin: 10px 0 15px 0; font-weight: bold; }
+    .hero-title { font-size: 6vw; font-weight: bold; margin: 1vw 0 0.5vw 0; }
+    .hero-sub { font-size: 4vw; margin: 0.5vw 0 1vw 0; color: #ffcc00; }
+    .hero-desc { font-size: 5vw; margin: 1vw 0 1.5vw 0; font-weight: bold; }
 
-    .launch-wrap { margin: 20px 0; text-align: center; width: 100%; max-width: 400px; }
-    .loading-bar { width: 100%; height: 25px; background-color: #333; border-radius: 12px; overflow: hidden; margin: 0 auto; }
+    .launch-wrap { margin: 2vw 0; text-align: center; width: 100%; max-width: 90%; }
+    .loading-bar { width: 100%; height: 5vw; max-height: 25px; background-color: #333; border-radius: 12px; overflow: hidden; margin: 0 auto; }
     .loading-fill { height: 100%; background-color: #ffcc00; border-radius: 12px 0 0 12px; width: 0%; animation: fillBar 3s forwards ease-in-out, pulseBar 2s 3s infinite alternate ease-in-out; }
 
     @keyframes fillBar { from { width: 0%; } to { width: 50%; } }
     @keyframes pulseBar { 0% { width: 50%; } 100% { width: 50.5%; } }
 
-    .donate-wrap { margin-top: 15px; position: relative; }
-    .donate-btn { padding: 10px 25px; font-size: 16px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+    .donate-wrap { margin-top: 1.5vw; position: relative; }
+    .donate-btn { padding: 1vw 2.5vw; font-size: 4vw; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
     .donate-btn:hover { background: #ffb800; }
 
     #donationOptions {
@@ -126,9 +133,9 @@
       flex-direction: column;
       position: absolute;
       background: #222;
-      padding: 10px;
+      padding: 1vw;
       border-radius: 8px;
-      margin-top: 5px;
+      margin-top: 0.5vw;
       opacity: 0;
       pointer-events: none;
       transition: all 0.3s ease;
@@ -136,20 +143,15 @@
       min-width: 120px;
     }
 
-    #donationOptions.show {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    #donationOptions ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-    #donationOptions ul li a { display: inline-flex; align-items: center; padding: 8px 12px; background: #333; color: #fff; border-radius: 5px; text-decoration: none; transition: background 0.3s; }
+    #donationOptions.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    #donationOptions ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5vw; }
+    #donationOptions ul li a { display: inline-flex; align-items: center; padding: 0.5vw 1vw; background: #333; color: #fff; border-radius: 5px; text-decoration: none; transition: background 0.3s; }
     #donationOptions ul li a:hover { background: #555; }
-    #donationOptions ul li a img { width: 20px; height: 20px; margin-right: 8px; }
+    #donationOptions ul li a img { width: 4vw; height: 4vw; margin-right: 0.5vw; max-width: 20px; max-height: 20px; }
 
-    .site-footer { text-align: center; padding: 15px; background: #111; color: #fff; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .social-icons { display: inline-flex; gap: 15px; margin-left: 10px; vertical-align: middle; }
-    .social-icons a { display: inline-block; width: 24px; height: 24px; }
+    .site-footer { text-align: center; padding: 1.5vw; background: #111; color: #fff; display: flex; justify-content: center; align-items: center; gap: 1vw; flex-wrap: wrap; font-size: 3vw; }
+    .social-icons { display: inline-flex; gap: 1vw; margin-left: 1vw; vertical-align: middle; }
+    .social-icons a { display: inline-block; width: 6vw; height: 6vw; max-width: 24px; max-height: 24px; }
     .social-icon { width: 100%; height: 100%; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); transition: filter 0.3s; }
     .social-icon:hover { filter: invert(52%) sepia(80%) saturate(4642%) hue-rotate(155deg) brightness(100%) contrast(95%); }
 
@@ -219,7 +221,7 @@
           <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" class="donate-btn" target="_blank">XEC RAFFLE</a>
         </div>
 
-        <p style="margin-top:10px;">
+        <p style="margin-top:1vw;">
           Don't have a XEC Wallet? 
           <a href="https://cashtab.com/" target="_blank" style="color:#00dfff; font-weight:bold;">CLICK HERE</a>
         </p>
@@ -281,17 +283,14 @@
       const otherDiv = document.getElementById(activeDiv === 1 ? 'slideshowBg2' : 'slideshowBg1');
 
       bgDiv.style.backgroundImage = `url(${images[newIndex]})`;
-      bgDiv.style.opacity = 0.60; // Updated opacity
+      bgDiv.style.opacity = 0.60;
       otherDiv.style.opacity = 0;
 
       currentIndex = newIndex;
       activeDiv = activeDiv === 1 ? 2 : 1;
     }
 
-    // Initial background
     changeBackground();
-
-    // Change every 1.5 seconds
     setInterval(changeBackground, 1500);
   </script>
 
