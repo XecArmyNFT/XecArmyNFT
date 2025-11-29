@@ -33,17 +33,10 @@
       color: #fff;
     }
 
-    .site-header .logo {
-      margin-bottom: 10px;
-      background: transparent;
-      padding: 0;
-    }
-
     .site-header .logo img {
       width: 210px;
       height: auto;
       display: block;
-      background: transparent;
     }
 
     .nav {
@@ -77,12 +70,8 @@
       align-items: center;
       max-width: 600px;
       width: 100%;
-      gap: 20px;
+      gap: 15px;
       text-align: center;
-    }
-
-    .hero-left {
-      width: 100%;
     }
 
     .hero-left img {
@@ -90,19 +79,20 @@
       margin: 0 auto;
     }
 
-    .hero-text h1 {
-      font-size: 2.2em;       /* big title */
-      margin: 15px 0 5px 0;   /* spacing below */
+    .hero-title {
+      font-size: 2.2em; /* big welcome text */
+      margin: 15px 0 5px 0;
+      font-weight: bold;
     }
 
-    .hero-text p.hero-sub {
-      font-size: 1.2em;       /* smaller slogan */
+    .hero-sub {
+      font-size: 1.2em; /* smaller slogan */
       margin: 5px 0 10px 0;
-      color: #ffcc00;         /* optional: make slogan color stand out */
+      color: #ffcc00;
     }
 
-    .hero-text p.hero-desc {
-      font-size: 1.5em;       /* launching soon text */
+    .hero-desc {
+      font-size: 1.5em; /* "We are launching soon" */
       margin: 10px 0 15px 0;
       font-weight: bold;
     }
@@ -110,8 +100,8 @@
     .launch-wrap {
       margin: 20px 0;
       text-align: center;
-      max-width: 400px;
       width: 100%;
+      max-width: 400px;
     }
 
     .loading-bar {
@@ -120,7 +110,7 @@
       background-color: #333;
       border-radius: 12px;
       overflow: hidden;
-      margin: 10px auto;
+      margin: 0 auto;
     }
 
     .loading-fill {
@@ -138,7 +128,7 @@
 
     @keyframes pulseBar {
       0% { width: 50%; }
-      100% { width: 50.5%; } /* subtle pulsation */
+      100% { width: 50.5%; }
     }
 
     .donate-wrap {
@@ -241,7 +231,7 @@
 
       <!-- Text under character -->
       <div class="hero-text">
-        <h1>WELCOME TO XEC ARMY</h1>
+        <h1 class="hero-title">WELCOME TO XEC ARMY</h1>
         <p class="hero-sub">The Largest NFTs Collections</p>
         <p class="hero-desc">WE ARE LAUNCHING SOON</p>
 
@@ -277,7 +267,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </main>
 
