@@ -12,8 +12,9 @@
       width: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #000000, #2a0039);
       color: #fff;
+      background: linear-gradient(to bottom, #000000, #2a0039);
+      position: relative;
     }
 
     img {
@@ -23,6 +24,22 @@
       background: transparent;
     }
 
+    /* Full-screen slideshow background */
+    .slideshow-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.15;   /* low opacity */
+      z-index: -1;      /* behind all content */
+      transition: background-image 1s ease-in-out;
+    }
+
+    /* Keep the rest of your styles as before */
     .site-header {
       display: flex;
       flex-direction: column;
@@ -74,100 +91,37 @@
       text-align: center;
     }
 
-    /* Character image with soft breathing turquoise glow */
     .hero-left img {
       max-width: 300px;
       margin: 0 auto;
-      border-radius: 50%; /* circular */
+      border-radius: 50%;
       border: 4px solid #00dfff;
       padding: 5px;
       box-shadow: 0 0 15px #00dfff, 0 0 30px #00dfff, 0 0 45px #00dfff;
-      animation: breatheGlow 4s infinite ease-in-out; /* slow breathing effect */
+      animation: breatheGlow 4s infinite ease-in-out;
     }
 
     @keyframes breatheGlow {
-      0% {
-        box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff;
-      }
-      50% {
-        box-shadow: 0 0 25px #00dfff, 0 0 50px #00dfff, 0 0 75px #00dfff;
-      }
-      100% {
-        box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff;
-      }
+      0% { box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff; }
+      50% { box-shadow: 0 0 25px #00dfff, 0 0 50px #00dfff, 0 0 75px #00dfff; }
+      100% { box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff; }
     }
 
-    .hero-title {
-      font-size: 2.2em;
-      margin: 15px 0 5px 0;
-      font-weight: bold;
-    }
+    .hero-title { font-size: 2.2em; margin: 15px 0 5px 0; font-weight: bold; }
+    .hero-sub { font-size: 1.2em; margin: 5px 0 10px 0; color: #ffcc00; }
+    .hero-desc { font-size: 1.5em; margin: 10px 0 15px 0; font-weight: bold; }
 
-    .hero-sub {
-      font-size: 1.2em;
-      margin: 5px 0 10px 0;
-      color: #ffcc00;
-    }
+    .launch-wrap { margin: 20px 0; text-align: center; width: 100%; max-width: 400px; }
 
-    .hero-desc {
-      font-size: 1.5em;
-      margin: 10px 0 15px 0;
-      font-weight: bold;
-    }
+    .loading-bar { width: 100%; height: 25px; background-color: #333; border-radius: 12px; overflow: hidden; margin: 0 auto; }
+    .loading-fill { height: 100%; background-color: #ffcc00; border-radius: 12px 0 0 12px; width: 0%; animation: fillBar 3s forwards ease-in-out, pulseBar 2s 3s infinite alternate ease-in-out; }
 
-    .launch-wrap {
-      margin: 20px 0;
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-    }
+    @keyframes fillBar { from { width: 0%; } to { width: 50%; } }
+    @keyframes pulseBar { 0% { width: 50%; } 100% { width: 50.5%; } }
 
-    .loading-bar {
-      width: 100%;
-      height: 25px;
-      background-color: #333;
-      border-radius: 12px;
-      overflow: hidden;
-      margin: 0 auto;
-    }
-
-    .loading-fill {
-      height: 100%;
-      background-color: #ffcc00;
-      border-radius: 12px 0 0 12px;
-      width: 0%;
-      animation: fillBar 3s forwards ease-in-out, pulseBar 2s 3s infinite alternate ease-in-out;
-    }
-
-    @keyframes fillBar {
-      from { width: 0%; }
-      to { width: 50%; }
-    }
-
-    @keyframes pulseBar {
-      0% { width: 50%; }
-      100% { width: 50.5%; }
-    }
-
-    .donate-wrap {
-      margin-top: 15px;
-      position: relative;
-    }
-
-    .donate-btn {
-      padding: 10px 25px;
-      font-size: 16px;
-      background: #ffcc00;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .donate-btn:hover {
-      background: #ffb800;
-    }
+    .donate-wrap { margin-top: 15px; position: relative; }
+    .donate-btn { padding: 10px 25px; font-size: 16px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+    .donate-btn:hover { background: #ffb800; }
 
     #donationOptions {
       display: flex;
@@ -190,75 +144,24 @@
       transform: translateY(0);
     }
 
-    #donationOptions ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    #donationOptions ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    #donationOptions ul li a { display: inline-flex; align-items: center; padding: 8px 12px; background: #333; color: #fff; border-radius: 5px; text-decoration: none; transition: background 0.3s; }
+    #donationOptions ul li a:hover { background: #555; }
+    #donationOptions ul li a img { width: 20px; height: 20px; margin-right: 8px; }
 
-    #donationOptions ul li a {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 12px;
-      background: #333;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
+    .site-footer { text-align: center; padding: 15px; background: #111; color: #fff; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .social-icons { display: inline-flex; gap: 15px; margin-left: 10px; vertical-align: middle; }
+    .social-icons a { display: inline-block; width: 24px; height: 24px; }
+    .social-icon { width: 100%; height: 100%; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); transition: filter 0.3s; }
+    .social-icon:hover { filter: invert(52%) sepia(80%) saturate(4642%) hue-rotate(155deg) brightness(100%) contrast(95%); }
 
-    #donationOptions ul li a:hover {
-      background: #555;
-    }
-
-    #donationOptions ul li a img {
-      width: 20px;
-      height: 20px;
-      margin-right: 8px;
-    }
-
-    /* Footer */
-    .site-footer {
-      text-align: center;
-      padding: 15px;
-      background: #111;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .social-icons {
-      display: inline-flex;
-      gap: 15px;
-      margin-left: 10px;
-      vertical-align: middle;
-    }
-
-    .social-icons a {
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-    }
-
-    .social-icon {
-      width: 100%;
-      height: 100%;
-      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-      transition: filter 0.3s;
-    }
-
-    .social-icon:hover {
-      filter: invert(52%) sepia(80%) saturate(4642%) hue-rotate(155deg) brightness(100%) contrast(95%);
-    }
   </style>
 </head>
 <body>
+
+  <!-- Full-screen slideshow background -->
+  <div class="slideshow-bg" id="slideshowBg"></div>
+
   <header class="site-header">
     <div class="logo">
       <img src="logo.png" alt="XEC ARMY Logo">
@@ -272,12 +175,10 @@
 
   <main class="hero">
     <div class="hero-inner">
-      <!-- Character Image -->
       <div class="hero-left">
         <img src="character.png" alt="XEC character">
       </div>
 
-      <!-- Text under character -->
       <div class="hero-text">
         <h1 class="hero-title">WELCOME TO XEC ARMY</h1>
         <p class="hero-sub">The Largest NFTs Collections</p>
@@ -356,5 +257,37 @@
       }
     });
   </script>
+
+  <script>
+    // Slideshow background script
+    const images = [
+      'bg1.png','bg2.png','bg3.png','bg4.png','bg5.png',
+      'bg6.png','bg7.png','bg8.png','bg9.png','bg10.png'
+    ];
+
+    let currentIndex = -1;
+
+    function getRandomIndex(excludeIndex) {
+      let index;
+      do {
+        index = Math.floor(Math.random() * images.length);
+      } while (index === excludeIndex);
+      return index;
+    }
+
+    function changeBackground() {
+      const newIndex = getRandomIndex(currentIndex);
+      const bgDiv = document.getElementById('slideshowBg');
+      bgDiv.style.backgroundImage = `url(${images[newIndex]})`;
+      currentIndex = newIndex;
+    }
+
+    // Initial background
+    changeBackground();
+
+    // Change every 1.5 seconds
+    setInterval(changeBackground, 1500);
+  </script>
+
 </body>
 </html>
