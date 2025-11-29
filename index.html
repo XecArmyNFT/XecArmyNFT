@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XEC ARMY Full-Screen Mosaic</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 <style>
   body, html {
     margin: 0;
@@ -63,9 +64,11 @@
     left: 50%;
     transform: translateX(-50%);
     color: cyan;
-    font-size: 2rem;
+    font-size: 4vw; /* relative to screen width */
+    font-weight: 700; /* bold */
+    letter-spacing: 1px;
     text-align: center;
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
     z-index: 10;
     white-space: nowrap;
   }
@@ -83,8 +86,9 @@
     }
 
     #welcome {
-      font-size: 1.2rem;
+      font-size: 6vw;
       top: 70%;
+      letter-spacing: 0.5px;
     }
   }
 </style>
