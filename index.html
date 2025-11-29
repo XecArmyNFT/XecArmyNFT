@@ -5,6 +5,45 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>XEC ARMY NFT</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Multi-Crypto Donate Styles */
+    .donate-btn {
+      padding: 10px 25px;
+      font-size: 16px;
+      background: #ffcc00;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+    .donate-btn:hover {
+      background: #ffb800;
+    }
+    #donationOptions {
+      display: none;
+      margin-top: 10px;
+    }
+    #donationOptions ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 10px;
+    }
+    #donationOptions ul li a {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #333;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    #donationOptions ul li a:hover {
+      background: #555;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -35,7 +74,19 @@
           <img src="launching.png" alt="Launching soon" class="launch-img">
         </div>
 
-        <a class="donate-btn" href="#">DONATE</a>
+        <!-- Multi-Crypto Donate Button -->
+        <button onclick="toggleDonationOptions()" class="donate-btn">
+          DONATE
+        </button>
+
+        <div id="donationOptions">
+          <ul>
+            <li><a href="ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">XEC</a></li>
+            <li><a href="bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx" target="_blank">BCH</a></li>
+            <li><a href="ethereum:0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">ETH</a></li>
+            <li><a href="https://polygonscan.com/address/0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">Polygon (MATIC)</a></li>
+          </ul>
+        </div>
       </section>
     </div>
   </main>
@@ -43,5 +94,12 @@
   <footer class="site-footer">
     © 2025 XEC ARMY NFT. All rights reserved.
   </footer>
+
+  <script>
+    function toggleDonationOptions() {
+      const el = document.getElementById('donationOptions');
+      el.style.display = el.style.display === 'none' ? 'flex' : 'none';
+    }
+  </script>
 </body>
 </html>
