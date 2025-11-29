@@ -1,112 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>XEC ARMY — Animated Background</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XEC ARMY NFT Background</title>
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: black;
+    height: 100%;
+  }
 
-    body {
-        background: #000;
-        overflow: hidden;
-        height: 100vh;
-        width: 100vw;
-        position: relative;
-        font-family: Arial, sans-serif;
-    }
+  #background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 
-    /* Wrapper for all banner rows */
-    .bg-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: -1;
-        opacity: 0.20; /* global low opacity */
-    }
+  .banner {
+    position: absolute;
+    display: flex;
+    width: max-content;
+    height: 20%;
+  }
 
-    /* Each banner row */
-    .banner {
-        position: absolute;
-        width: 300%; /* long enough for looping */
-        height: 33.33%;
-        display: flex;
-        gap: 20px;
-    }
+  #banner1 { top: 0; }
+  #banner2 { top: 20%; }
+  #banner3 { top: 40%; }
+  #banner4 { top: 60%; }
+  #banner5 { top: 80%; }
 
-    /* Banner speeds */
-    .banner1 { top: 0; animation: scroll-left 40s linear infinite; }
-    .banner2 { top: 33.33%; animation: scroll-right 55s linear infinite; }
-    .banner3 { top: 66.66%; animation: scroll-left 50s linear infinite; }
+  .banner img {
+    opacity: 0.2;
+    margin: 0 10px;
+    filter: drop-shadow(0 0 15px cyan) blur(2px);
+    mix-blend-mode: screen;
+    position: relative;
+    animation: wiggle 4s ease-in-out infinite, glow 3s infinite alternate;
+    transition: transform 0.5s;
+  }
 
-    /* Animation keyframes */
-    @keyframes scroll-left {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-66.66%); }
-    }
+  .banner img:hover {
+    transform: scale(1.1);
+  }
 
-    @keyframes scroll-right {
-        0% { transform: translateX(-66.66%); }
-        100% { transform: translateX(0); }
-    }
+  @keyframes wiggle {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    50% { transform: translateY(3px); }
+    75% { transform: translateY(-3px); }
+  }
 
-    /* NFT background images */
-    .nft-img {
-        height: 100%;
-        object-fit: cover;
-        border-radius: 8px;
-    }
+  @keyframes glow {
+    0% { filter: drop-shadow(0 0 15px cyan) blur(2px); }
+    25% { filter: drop-shadow(0 0 15px magenta) blur(2px); }
+    50% { filter: drop-shadow(0 0 15px lime) blur(2px); }
+    75% { filter: drop-shadow(0 0 15px yellow) blur(2px); }
+    100% { filter: drop-shadow(0 0 15px cyan) blur(2px); }
+  }
 </style>
 </head>
 <body>
-
-<div class="bg-wrapper">
-    <div class="banner banner1">
-        <img src="bg1.png" class="nft-img">
-        <img src="bg2.png" class="nft-img">
-        <img src="bg3.png" class="nft-img">
-        <img src="bg4.png" class="nft-img">
-        <img src="bg5.png" class="nft-img">
-        <img src="bg6.png" class="nft-img">
-        <img src="bg7.png" class="nft-img">
-        <img src="bg8.png" class="nft-img">
-        <img src="bg9.png" class="nft-img">
-        <img src="bg10.png" class="nft-img">
-    </div>
-
-    <div class="banner banner2">
-        <img src="bg1.png" class="nft-img">
-        <img src="bg2.png" class="nft-img">
-        <img src="bg3.png" class="nft-img">
-        <img src="bg4.png" class="nft-img">
-        <img src="bg5.png" class="nft-img">
-        <img src="bg6.png" class="nft-img">
-        <img src="bg7.png" class="nft-img">
-        <img src="bg8.png" class="nft-img">
-        <img src="bg9.png" class="nft-img">
-        <img src="bg10.png" class="nft-img">
-    </div>
-
-    <div class="banner banner3">
-        <img src="bg1.png" class="nft-img">
-        <img src="bg2.png" class="nft-img">
-        <img src="bg3.png" class="nft-img">
-        <img src="bg4.png" class="nft-img">
-        <img src="bg5.png" class="nft-img">
-        <img src="bg6.png" class="nft-img">
-        <img src="bg7.png" class="nft-img">
-        <img src="bg8.png" class="nft-img">
-        <img src="bg9.png" class="nft-img">
-        <img src="bg10.png" class="nft-img">
-    </div>
+<div id="background">
+  <div class="banner" id="banner1"></div>
+  <div class="banner" id="banner2"></div>
+  <div class="banner" id="banner3"></div>
+  <div class="banner" id="banner4"></div>
+  <div class="banner" id="banner5"></div>
 </div>
 
+<script>
+const totalImages = 26; // total uploaded images
+const banners = [1, 2, 3, 4, 5];
+
+function getRandomImages(count) {
+  const arr = [];
+  while (arr.length < count) {
+    const n = Math.floor(Math.random() * totalImages) + 1;
+    arr.push(n);
+  }
+  return arr;
+}
+
+// Add images to banners
+banners.forEach((b, index) => {
+  const banner = document.getElementById(`banner${b}`);
+  const images = getRandomImages(totalImages); // shuffle all images
+  images.forEach(num => {
+    const img = document.createElement('img');
+    img.src = `bg${num}.png`;
+    banner.appendChild(img);
+  });
+});
+
+// Animate banners horizontally
+banners.forEach((b, i) => {
+  const banner = document.getElementById(`banner${b}`);
+  const direction = i % 2 === 0 ? 1 : -1; // opposite direction
+  let pos = 0;
+
+  function animate() {
+    pos += 0.3 * direction; // adjust speed here
+    if (pos > window.innerWidth) pos = -banner.scrollWidth;
+    if (pos < -banner.scrollWidth) pos = window.innerWidth;
+    banner.style.transform = `translateX(${pos}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
+</script>
 </body>
 </html>
