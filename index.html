@@ -152,13 +152,9 @@
     .donate-wrap {
       margin-top: 15px;
       position: relative;
-      display: flex;
-      gap: 15px; /* space between buttons */
-      justify-content: center;
-      flex-wrap: wrap;
     }
 
-    .donate-btn, .raffle-btn {
+    .donate-btn {
       padding: 10px 25px;
       font-size: 16px;
       background: #ffcc00;
@@ -169,7 +165,7 @@
       transition: background 0.3s;
     }
 
-    .donate-btn:hover, .raffle-btn:hover {
+    .donate-btn:hover {
       background: #ffb800;
     }
 
@@ -224,11 +220,41 @@
       margin-right: 8px;
     }
 
+    /* Footer */
     .site-footer {
       text-align: center;
       padding: 15px;
       background: #111;
       color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons {
+      display: inline-flex;
+      gap: 15px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+    }
+
+    .social-icon {
+      width: 100%;
+      height: 100%;
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+      transition: filter 0.3s;
+    }
+
+    .social-icon:hover {
+      filter: invert(52%) sepia(80%) saturate(4642%) hue-rotate(155deg) brightness(100%) contrast(95%);
     }
   </style>
 </head>
@@ -265,7 +291,6 @@
 
         <div class="donate-wrap">
           <button onclick="toggleDonationOptions()" class="donate-btn">DONATE</button>
-          <button onclick="window.open('https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff','_blank')" class="raffle-btn">XEC RAFFLE</button>
           <div id="donationOptions">
             <ul>
               <li>
@@ -290,20 +315,31 @@
           </div>
         </div>
 
-        <!-- New CashTab install link -->
-        <p style="margin-top: 10px; font-size: 0.95em; color: #fff;">
-          Don't have a XEC Wallet? 
-          <a href="https://cashtab.com/" target="_blank" style="color: #00dfff; font-weight: bold; text-decoration: underline;">
-            CLICK HERE
-          </a>
-        </p>
+        <div class="donate-wrap">
+          <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" class="donate-btn" target="_blank">XEC RAFFLE</a>
+        </div>
 
+        <p style="margin-top:10px;">
+          Don't have a XEC Wallet? 
+          <a href="https://cashtab.com/" target="_blank" style="color:#00dfff; font-weight:bold;">CLICK HERE</a>
+        </p>
       </div>
     </div>
   </main>
 
   <footer class="site-footer">
     © 2025 XEC ARMY NFT. All rights reserved.
+    <span class="social-icons">
+      <a href="https://x.com/psyman169?t=U67Ggz-DkxWV3xwoDt8PpA&s=09" target="_blank" title="Follow me on X">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="X" class="social-icon">
+      </a>
+      <a href="https://t.me/Nabzzzz00" target="_blank" title="Join my Telegram">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram" class="social-icon">
+      </a>
+      <a href="mailto:psyman169@gmail.com" target="_blank" title="Send me an email">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail" class="social-icon">
+      </a>
+    </span>
   </footer>
 
   <script>
