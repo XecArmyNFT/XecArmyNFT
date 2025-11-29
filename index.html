@@ -14,7 +14,7 @@
       color: #fff;
       overflow-x: hidden;
       position: relative;
-      background: linear-gradient(to bottom, #000000, #2a0039);
+      background: #000;
     }
 
     img { max-width: 100%; height: auto; display: block; }
@@ -62,7 +62,7 @@
 
     .nav a.active { text-decoration: underline; }
 
-    /* Hero */
+    /* Hero section */
     .hero {
       min-height: 80vh;
       display: flex;
@@ -243,9 +243,8 @@
 
     function getRandomIndex(excludeIndex) {
       let index;
-      do {
-        index = Math.floor(Math.random() * images.length);
-      } while (index === excludeIndex);
+      do { index = Math.floor(Math.random() * images.length); }
+      while (index === excludeIndex);
       return index;
     }
 
