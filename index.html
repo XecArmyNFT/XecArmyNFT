@@ -13,7 +13,6 @@
       width: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      /* Dark-to-purple gradient for outside border */
       background: linear-gradient(to bottom, #000000, #2a0039);
       color: #fff;
     }
@@ -43,7 +42,7 @@
     }
 
     .site-header .logo img {
-      width: 210px; /* updated bigger logo size */
+      width: 210px; /* logo size */
       height: auto;
       display: block;
       background: transparent;
@@ -53,7 +52,7 @@
       display: flex;
       gap: 30px;
       flex-wrap: wrap;
-      justify-content: center; /* center horizontally */
+      justify-content: center;
     }
 
     .nav a {
@@ -101,24 +100,25 @@
     }
 
     .hero-desc {
-      font-size: 1em; /* slightly smaller than subtitle */
-      color: #cccccc; /* lighter color for contrast */
+      font-size: 1em;
+      color: #cccccc;
       margin-top: 10px;
       line-height: 1.5;
       text-align: center;
     }
 
+    /* Launch image + countdown */
     .launch-wrap {
       margin-bottom: 15px;
-      text-align: center;
+      text-align: center; /* centers image and countdown */
     }
 
-    /* Countdown timer */
     .countdown {
-      font-size: 1.5em;
+      font-size: 1.6em; /* slightly bigger */
       font-weight: bold;
       margin-top: 10px;
       color: #ffcc00;
+      letter-spacing: 2px; /* spacing for readability */
     }
 
     /* Multi-Crypto Donate Button */
@@ -234,7 +234,7 @@
 
         <div class="launch-wrap">
           <img src="launching.png" alt="Launching soon" class="launch-img">
-          <!-- Infinite countdown timer -->
+          <!-- Countdown timer directly under the launching image -->
           <div class="countdown" id="countdown">00 : 00 : 00 : 00</div>
         </div>
 
@@ -289,17 +289,20 @@
       }
     });
 
-    // Infinite countdown timer
+    // Infinite countdown timer with days
     function updateCountdown() {
       const now = new Date();
-      const target = new Date(now.getTime() + 24*60*60*1000); // resets every 24 hours
+      // Target: 24 hours from now (infinite loop)
+      const target = new Date(now.getTime() + 24*60*60*1000);
       const diff = target - now;
 
-      const hours = String(Math.floor(diff / (1000*60*60))).padStart(2, '0');
+      // Calculate days, hours, minutes, seconds
+      const days = String(Math.floor(diff / (1000*60*60*24))).padStart(2, '0');
+      const hours = String(Math.floor((diff % (1000*60*60*24)) / (1000*60*60))).padStart(2, '0');
       const minutes = String(Math.floor((diff % (1000*60*60)) / (1000*60))).padStart(2, '0');
       const seconds = String(Math.floor((diff % (1000*60)) / 1000)).padStart(2, '0');
 
-      document.getElementById('countdown').textContent = `00 : ${hours} : ${minutes} : ${seconds}`;
+      document.getElementById('countdown').textContent = `${days} : ${hours} : ${minutes} : ${seconds}`;
     }
 
     setInterval(updateCountdown, 1000);
