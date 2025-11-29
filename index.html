@@ -41,18 +41,18 @@
     opacity: 1;
   }
 
-  /* Logo in center */
+  /* Logo in center but slightly higher */
   #logo {
     position: absolute;
-    top: 50%;
+    top: 40%; /* moved up from center */
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 528px; /* ~14 cm */
-    max-height: 528px;
+    max-width: 720px; /* ~19 cm */
+    max-height: 720px;
     width: auto;
     height: auto;
     z-index: 10;
-    filter: drop-shadow(0 0 25px cyan); /* neon glow */
+    filter: drop-shadow(0 0 30px cyan); /* stronger neon glow */
   }
 
   /* Mobile optimization */
@@ -63,8 +63,8 @@
     }
 
     #logo {
-      max-width: 300px; /* scaled for mobile */
-      max-height: 300px;
+      max-width: 380px; /* scaled for mobile */
+      max-height: 380px;
     }
   }
 </style>
