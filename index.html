@@ -12,6 +12,7 @@
     background: black;
     width: 100vw;
     height: 100vh;
+    font-family: 'Orbitron', sans-serif; /* futuristic font */
   }
 
   #grid {
@@ -44,7 +45,7 @@
   /* Logo in center but slightly higher */
   #logo {
     position: absolute;
-    top: 30%; /* moved more up */
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 870px; /* ~23 cm */
@@ -52,7 +53,21 @@
     width: auto;
     height: auto;
     z-index: 10;
-    filter: drop-shadow(0 0 35px cyan); /* neon glow */
+    filter: drop-shadow(0 0 35px cyan);
+  }
+
+  /* Welcome text under logo */
+  #welcome {
+    position: absolute;
+    top: 65%; /* below the logo */
+    left: 50%;
+    transform: translateX(-50%);
+    color: cyan;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    z-index: 10;
+    white-space: nowrap;
   }
 
   /* Mobile optimization */
@@ -63,8 +78,13 @@
     }
 
     #logo {
-      max-width: 450px; /* scaled for mobile */
+      max-width: 450px;
       max-height: 450px;
+    }
+
+    #welcome {
+      font-size: 1.2rem;
+      top: 70%;
     }
   }
 </style>
@@ -73,6 +93,7 @@
 
 <div id="grid"></div>
 <img src="logo1.png" id="logo" alt="XEC ARMY Logo">
+<div id="welcome">Welcome to the Future of eCash – Where NFTs Meet Power</div>
 
 <script>
 const totalImages = 26;
