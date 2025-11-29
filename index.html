@@ -29,8 +29,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.35; /* slightly more visible */
-    filter: brightness(1.3) drop-shadow(0 0 15px cyan) blur(1px); /* increased brightness */
+    opacity: 0.35; /* increased opacity */
+    filter: drop-shadow(0 0 10px cyan) blur(1px); /* reduced blur */
     mix-blend-mode: screen;
     transition: transform 0.3s, opacity 0.3s;
   }
@@ -39,7 +39,6 @@
   .nft:active {
     transform: scale(1.2);
     opacity: 1;
-    filter: brightness(1.5) drop-shadow(0 0 20px cyan) blur(1px);
   }
 
   /* Mobile optimization */
