@@ -6,7 +6,7 @@
   <title>XEC ARMY NFT</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Multi-Crypto Donate Styles */
+    /* Multi‑Crypto Donate Styles */
     .donate-btn {
       padding: 10px 25px;
       font-size: 16px;
@@ -32,7 +32,8 @@
       gap: 10px;
     }
     #donationOptions ul li a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       padding: 8px 12px;
       background: #333;
       color: #fff;
@@ -42,6 +43,11 @@
     }
     #donationOptions ul li a:hover {
       background: #555;
+    }
+    #donationOptions ul li a img {
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
     }
   </style>
 </head>
@@ -74,19 +80,40 @@
           <img src="launching.png" alt="Launching soon" class="launch-img">
         </div>
 
-        <!-- Multi-Crypto Donate Button -->
+        <!-- Multi‑Crypto Donate Button -->
         <button onclick="toggleDonationOptions()" class="donate-btn">
           DONATE
         </button>
 
         <div id="donationOptions">
           <ul>
-            <li><a href="ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">XEC</a></li>
-            <li><a href="bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx" target="_blank">BCH</a></li>
-            <li><a href="ethereum:0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">ETH</a></li>
-            <li><a href="https://polygonscan.com/address/0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">Polygon (MATIC)</a></li>
+            <li>
+              <a href="ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ecash/standard.png" alt="XEC logo" />
+                XEC
+              </a>
+            </li>
+            <li>
+              <a href="bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/bitcoin-cash/standard.png" alt="BCH logo" />
+                BCH
+              </a>
+            </li>
+            <li>
+              <a href="ethereum:0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ethereum/standard.png" alt="ETH logo" />
+                ETH
+              </a>
+            </li>
+            <li>
+              <a href="https://polygonscan.com/address/0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/polygon/standard.png" alt="MATIC logo" />
+                MATIC
+              </a>
+            </li>
           </ul>
         </div>
+
       </section>
     </div>
   </main>
