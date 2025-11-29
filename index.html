@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XEC ARMY NFT Background</title>
+<title>XEC ARMY 3D Carousel</title>
 <style>
   body, html {
     margin: 0;
@@ -11,114 +11,81 @@
     overflow: hidden;
     background: black;
     height: 100%;
+    perspective: 1000px; /* needed for 3D */
   }
 
-  #background {
+  #carousel {
+    width: 100vw;
+    height: 100vh;
     position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transform-origin: center center;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
   }
 
-  .banner {
+  .nft {
     position: absolute;
-    display: flex;
-    width: max-content;
-    height: 20%;
-    white-space: nowrap;
-  }
-
-  #banner1 { top: 0; }
-  #banner2 { top: 20%; }
-  #banner3 { top: 40%; }
-  #banner4 { top: 60%; }
-  #banner5 { top: 80%; }
-
-  .banner img {
-    opacity: 30;
-    margin: 0 10px;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    opacity: 0.2;
     filter: drop-shadow(0 0 15px cyan) blur(2px);
     mix-blend-mode: screen;
-    position: relative;
-    animation: wiggle 4s ease-in-out infinite, glow 3s infinite alternate;
-    transition: transform 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
   }
 
-  .banner img:hover {
-    transform: scale(1.1);
-  }
-
-  @keyframes wiggle {
-    0%, 100% { transform: translateY(0); }
-    25% { transform: translateY(-5px); }
-    50% { transform: translateY(3px); }
-    75% { transform: translateY(-3px); }
-  }
-
-  @keyframes glow {
-    0% { filter: drop-shadow(0 0 15px cyan) blur(2px); }
-    25% { filter: drop-shadow(0 0 15px magenta) blur(2px); }
-    50% { filter: drop-shadow(0 0 15px lime) blur(2px); }
-    75% { filter: drop-shadow(0 0 15px yellow) blur(2px); }
-    100% { filter: drop-shadow(0 0 15px cyan) blur(2px); }
+  .nft:hover {
+    transform: scale(1.2) translateZ(50px);
+    opacity: 1;
   }
 </style>
 </head>
 <body>
-<div id="background">
-  <div class="banner" id="banner1"></div>
-  <div class="banner" id="banner2"></div>
-  <div class="banner" id="banner3"></div>
-  <div class="banner" id="banner4"></div>
-  <div class="banner" id="banner5"></div>
-</div>
+
+<div id="carousel"></div>
 
 <script>
-const totalImages = 26; // total uploaded images
-const banners = [1, 2, 3, 4, 5];
+const totalImages = 26; // your images bg1.png -> bg26.png
+const carousel = document.getElementById('carousel');
+const radius = 400; // radius of orbit
+const centerX = window.innerWidth / 2;
+const centerY = window.innerHeight / 2;
+const nfts = [];
 
-function getRandomImages(count) {
-  const arr = [];
-  while (arr.length < count) {
-    const n = Math.floor(Math.random() * totalImages) + 1;
-    arr.push(n);
-  }
-  return arr;
+// create NFT elements and position in orbit
+for (let i = 0; i < totalImages; i++) {
+  const nft = document.createElement('img');
+  nft.src = `bg${i+1}.png`;
+  nft.classList.add('nft');
+  carousel.appendChild(nft);
+  nfts.push({
+    el: nft,
+    angle: (i / totalImages) * Math.PI * 2 // spread evenly in circle
+  });
 }
 
-// Add images to banners and duplicate for seamless loop
-banners.forEach((b) => {
-  const banner = document.getElementById(`banner${b}`);
-  const images = getRandomImages(totalImages);
-
-  images.forEach(num => {
-    const img1 = document.createElement('img');
-    img1.src = `bg${num}.png`;
-    const img2 = document.createElement('img');
-    img2.src = `bg${num}.png`; // duplicate
-    banner.appendChild(img1);
-    banner.appendChild(img2);
+// animation loop
+let rotation = 0;
+function animate() {
+  rotation += 0.002; // rotation speed
+  nfts.forEach((nftObj, i) => {
+    const angle = nftObj.angle + rotation;
+    const x = centerX + radius * Math.cos(angle) - 64; // adjust image width
+    const y = centerY + radius * Math.sin(angle) * 0.5; // ellipse effect
+    const scale = 0.5 + 0.5 * (1 + Math.sin(angle)); // depth effect
+    const opacity = 0.2 + 0.8 * (0.5 + 0.5 * Math.sin(angle));
+    nftObj.el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
+    nftObj.el.style.zIndex = Math.floor(scale * 1000);
+    nftObj.el.style.opacity = opacity;
   });
-});
-
-// Infinite horizontal animation
-banners.forEach((b, i) => {
-  const banner = document.getElementById(`banner${b}`);
-  const direction = i % 2 === 0 ? 1 : -1;
-  let pos = 0;
-
-  function animate() {
-    pos += 0.3 * direction;
-    // reset seamlessly when half the banner scrolls past
-    const resetPos = banner.scrollWidth / 2;
-    if (direction === 1 && pos >= resetPos) pos = 0;
-    if (direction === -1 && pos <= -resetPos) pos = 0;
-    banner.style.transform = `translateX(${-pos}px)`; // negative for seamless scroll
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-});
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
+
 </body>
 </html>
