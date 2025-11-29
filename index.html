@@ -13,7 +13,8 @@
       width: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background-color: #000000; /* solid matte black */
+      /* Dark-to-purple gradient for outside border */
+      background: linear-gradient(to bottom, #000000, #2a0039);
       color: #fff;
     }
 
@@ -32,14 +33,14 @@
       align-items: center;    /* center horizontally */
       justify-content: center;
       padding: 10px 20px;
-      background: #111; /* slightly lighter than pure black */
+      background: transparent; /* transparent so gradient shows through */
       color: #fff;
     }
 
     .site-header .logo {
       margin-bottom: 10px;
-      background: transparent; /* remove any background */
-      padding: 0; /* remove extra padding */
+      background: transparent; /* remove black box around logo */
+      padding: 0; /* remove extra spacing */
     }
 
     .site-header .logo img {
