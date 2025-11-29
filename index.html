@@ -1,177 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>XEC ARMY NFT</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: linear-gradient(to bottom, #0a0014, #b331f0);
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* HEADER */
-    header {
-      width: 100%;
-      padding: 20px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #000;
-    }
-
-    .logo img {
-      height: 60px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: .3s;
-    }
-
-    .active {
-      background: linear-gradient(90deg, #5cf9ff, #d977ff);
-      padding: 8px 20px;
-      border-radius: 25px;
-      color: #000;
-    }
-
-    .toggle {
-      width: 35px;
-      height: 35px;
-      border: 2px solid #fff;
-      border-radius: 50%;
-    }
-
-    /* MAIN CONTENT */
-    .main-section {
-      padding: 40px 5%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      background: #000;
-      margin: 40px auto;
-      width: 90%;
-      border: 3px solid #111;
-      box-shadow: 0 0 25px rgba(0,0,0,0.8);
-      padding-bottom: 60px;
-    }
-
-    .character img {
-      width: 420px;
-      max-width: 100%;
-    }
-
-    .text-area {
-      text-align: center;
-      max-width: 450px;
-    }
-
-    .text-area h1 {
-      font-size: 2.3rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #5cf9ff, #d977ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .text-area h3 {
-      font-size: 1.3rem;
-      margin-top: 10px;
-      color: #5cf9ff;
-    }
-
-    .launch-img img {
-      width: 330px;
-      margin: 25px 0;
-    }
-
-    .donate-btn {
-      display: inline-block;
-      padding: 12px 35px;
-      background: #00eaff;
-      color: #000;
-      font-weight: 900;
-      border: 3px solid #00eaff;
-      border-radius: 5px;
-      font-size: 1.2rem;
-      transition: .3s;
-      text-decoration: none;
-    }
-
-    .donate-btn:hover {
-      background: #000;
-      color: #00eaff;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 1rem;
-      font-weight: bold;
-      background: #b331f0;
-      color: #000;
-      margin-top: 30px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header>
+  <header class="site-header">
     <div class="logo">
-      <img src="logo.png" alt="XEC ARMY Logo" />
+      <img src="logo.png" alt="XEC ARMY Logo">
     </div>
-
-    <nav>
+    <nav class="nav">
       <a href="#">Home</a>
       <a class="active" href="#">Collections</a>
       <a href="#">About us</a>
-      <div class="toggle"></div>
+      <div class="toggle" aria-hidden="true"></div>
     </nav>
   </header>
 
-  <!-- MAIN SECTION -->
-  <section class="main-section">
-    <div class="character">
-      <img src="character.png" alt="Character" />
+  <main class="hero">
+    <div class="hero-inner">
+      <!-- LEFT: Character -->
+      <aside class="hero-left">
+        <img src="character.png" alt="XEC character" class="character-img">
+      </aside>
+
+      <!-- RIGHT: Text + Launch image + Donate -->
+      <section class="hero-right">
+        <h1 class="hero-title">WELCOME TO XEC ARMY NFTS</h1>
+        <p class="hero-sub">The Largest NFTs Collections</p>
+
+        <div class="launch-wrap">
+          <img src="launching.png" alt="Launching soon" class="launch-img">
+        </div>
+
+        <a class="donate-btn" href="#">DONATE</a>
+      </section>
     </div>
+  </main>
 
-    <div class="text-area">
-      <h1>WELCOME TO XEC ARMY NFTS</h1>
-      <h3>The Largest NFTs Collections</h3>
-
-      <div class="launch-img">
-        <img src="launching.png" alt="Launching Soon" />
-      </div>
-
-      <a class="donate-btn" href="#">DONATE</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
+  <footer class="site-footer">
     © 2025 XEC ARMY NFT. All rights reserved.
   </footer>
-
 </body>
 </html>
