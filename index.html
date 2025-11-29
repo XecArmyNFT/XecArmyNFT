@@ -42,7 +42,7 @@
     }
 
     .site-header .logo img {
-      width: 210px; /* logo size */
+      width: 210px;
       height: auto;
       display: block;
       background: transparent;
@@ -107,33 +107,38 @@
       text-align: center;
     }
 
-    /* Launch image + loading bar */
+    /* Loading bar only (no image) */
     .launch-wrap {
-      margin-bottom: 15px;
-      text-align: center; /* centers image and loading bar */
+      margin: 40px auto; /* space above and below */
+      text-align: center;
+      max-width: 400px; /* wider bar */
     }
 
     .loading-bar {
       width: 100%;
-      max-width: 300px;
-      height: 20px;
-      background-color: #333; /* empty bar color */
-      border-radius: 10px;
-      margin: 15px auto 0;
+      height: 25px; /* taller bar */
+      background-color: #333;
+      border-radius: 12px;
+      margin: 0 auto;
       overflow: hidden;
     }
 
     .loading-fill {
       height: 100%;
-      background-color: #ffcc00; 
-      border-radius: 10px 0 0 10px;
-      width: 50%; /* initial width */
-      animation: loadingAnim 3s infinite alternate ease-in-out;
+      background-color: #ffcc00;
+      border-radius: 12px 0 0 12px;
+      width: 0%;
+      animation: fillBar 3s forwards ease-in-out, pulseBar 2s 3s infinite alternate ease-in-out;
     }
 
-    @keyframes loadingAnim {
-      0% { width: 30%; }
-      100% { width: 70%; }
+    @keyframes fillBar {
+      from { width: 0%; }
+      to { width: 50%; }
+    }
+
+    @keyframes pulseBar {
+      0% { width: 50%; }
+      100% { width: 50.5%; } /* subtle pulsation */
     }
 
     /* Multi-Crypto Donate Button */
@@ -239,18 +244,12 @@
         <img src="character.png" alt="XEC character" class="character-img">
       </aside>
 
-      <!-- RIGHT: Text + Launch image + Loading bar + Description + Donate -->
+      <!-- RIGHT: Text + Loading bar + Description + Donate -->
       <section class="hero-right">
-        <h1 class="hero-title">WELCOME TO XEC ARMY NFTS</h1>
-        <p class="hero-sub">The Largest NFTs Collections</p>
-        <p class="hero-desc">
-          Be part of the XEC ARMY — discover, collect, and showcase exclusive NFTs created for the ultimate crypto and digital art experience.
-        </p>
+        <h1 class="hero-title">WE ARE LAUNCHING SOON</h1>
 
         <div class="launch-wrap">
-          <img src="launching.png" alt="Launching soon" class="launch-img">
-
-          <!-- Animated Loading bar 30%–70% -->
+          <!-- Only horizontal loading bar -->
           <div class="loading-bar">
             <div class="loading-fill"></div>
           </div>
@@ -284,6 +283,10 @@
             </ul>
           </div>
         </div>
+
+        <p class="hero-desc">
+          Be part of the XEC ARMY — discover, collect, and showcase exclusive NFTs created for the ultimate crypto and digital art experience.
+        </p>
       </section>
     </div>
   </main>
