@@ -6,13 +6,95 @@
   <title>XEC ARMY NFT</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Top-left logo bigger */
+    /* Reset & prevent horizontal scroll */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Make all images responsive */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Header */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #111;
+      color: #fff;
+      flex-wrap: wrap;
+    }
+
     .site-header .logo img {
-      width: 150px; /* slightly bigger */
+      width: 150px; /* bigger logo */
       height: auto;
     }
 
-    /* Multi‑Crypto Donate Styles */
+    .nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+
+    .nav a.active {
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      width: 100%;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .hero-left, .hero-right {
+      flex: 1 1 300px; /* shrink on mobile */
+      box-sizing: border-box;
+    }
+
+    .hero-title {
+      font-size: 2em;
+      margin: 0 0 10px 0;
+    }
+
+    .hero-sub {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .launch-wrap {
+      margin-bottom: 15px;
+    }
+
+    /* Multi-Crypto Donate Button */
+    .donate-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
     .donate-btn {
       padding: 10px 25px;
       font-size: 16px;
@@ -21,18 +103,17 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 15px;
       transition: background 0.3s;
       position: relative;
       z-index: 1;
     }
+
     .donate-btn:hover {
       background: #ffb800;
     }
 
     #donationOptions {
       display: flex;
-      gap: 10px;
       flex-direction: column;
       position: absolute;
       background: #222;
@@ -43,6 +124,7 @@
       pointer-events: none;
       transition: all 0.3s ease;
       z-index: 2;
+      min-width: 120px;
     }
 
     #donationOptions.show {
@@ -75,17 +157,19 @@
       background: #555;
     }
 
-    /* Keep crypto icons size original (20px) */
+    /* Crypto icons stay 20px */
     #donationOptions ul li a img {
-      width: 20px;   
+      width: 20px;
       height: 20px;
       margin-right: 8px;
     }
 
-    /* Wrap for positioning popup relative to button */
-    .donate-wrap {
-      position: relative;
-      display: inline-block;
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 15px;
+      background: #111;
+      color: #fff;
     }
   </style>
 </head>
