@@ -24,7 +24,7 @@
       background: transparent;
     }
 
-    /* Full-screen slideshow background */
+    /* Full-screen slideshow background (fade effect) */
     .slideshow-bg {
       position: fixed;
       top: 0;
@@ -34,12 +34,12 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0.15;   /* low opacity */
-      z-index: -1;      /* behind all content */
-      transition: background-image 1s ease-in-out;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 1s ease-in-out;
     }
 
-    /* Keep the rest of your styles as before */
+    /* Keep all your existing CSS exactly the same */
     .site-header {
       display: flex;
       flex-direction: column;
@@ -74,7 +74,6 @@
       text-decoration: underline;
     }
 
-    /* Hero Section */
     .hero {
       padding: 20px;
       display: flex;
@@ -112,7 +111,6 @@
     .hero-desc { font-size: 1.5em; margin: 10px 0 15px 0; font-weight: bold; }
 
     .launch-wrap { margin: 20px 0; text-align: center; width: 100%; max-width: 400px; }
-
     .loading-bar { width: 100%; height: 25px; background-color: #333; border-radius: 12px; overflow: hidden; margin: 0 auto; }
     .loading-fill { height: 100%; background-color: #ffcc00; border-radius: 12px 0 0 12px; width: 0%; animation: fillBar 3s forwards ease-in-out, pulseBar 2s 3s infinite alternate ease-in-out; }
 
@@ -159,8 +157,9 @@
 </head>
 <body>
 
-  <!-- Full-screen slideshow background -->
-  <div class="slideshow-bg" id="slideshowBg"></div>
+  <!-- Full-screen fade slideshow background -->
+  <div class="slideshow-bg" id="slideshowBg1"></div>
+  <div class="slideshow-bg" id="slideshowBg2"></div>
 
   <header class="site-header">
     <div class="logo">
@@ -258,14 +257,15 @@
     });
   </script>
 
+  <!-- Smooth fade slideshow script -->
   <script>
-    // Slideshow background script
     const images = [
       'bg1.png','bg2.png','bg3.png','bg4.png','bg5.png',
       'bg6.png','bg7.png','bg8.png','bg9.png','bg10.png'
     ];
 
     let currentIndex = -1;
+    let activeDiv = 1;
 
     function getRandomIndex(excludeIndex) {
       let index;
@@ -277,9 +277,15 @@
 
     function changeBackground() {
       const newIndex = getRandomIndex(currentIndex);
-      const bgDiv = document.getElementById('slideshowBg');
+      const bgDiv = document.getElementById(activeDiv === 1 ? 'slideshowBg1' : 'slideshowBg2');
+      const otherDiv = document.getElementById(activeDiv === 1 ? 'slideshowBg2' : 'slideshowBg1');
+
       bgDiv.style.backgroundImage = `url(${images[newIndex]})`;
+      bgDiv.style.opacity = 0.60; // Updated opacity
+      otherDiv.style.opacity = 0;
+
       currentIndex = newIndex;
+      activeDiv = activeDiv === 1 ? 2 : 1;
     }
 
     // Initial background
