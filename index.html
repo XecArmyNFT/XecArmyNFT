@@ -22,6 +22,7 @@
       max-width: 100%;
       height: auto;
       display: block;
+      background: transparent; /* ensure no background behind images */
     }
 
     /* Header */
@@ -31,17 +32,21 @@
       align-items: center;    /* center horizontally */
       justify-content: center;
       padding: 10px 20px;
-      background: #111; /* slightly lighter than pure black for contrast */
+      background: #111; /* slightly lighter than pure black */
       color: #fff;
     }
 
     .site-header .logo {
       margin-bottom: 10px;
+      background: transparent; /* remove any background */
+      padding: 0; /* remove extra padding */
     }
 
     .site-header .logo img {
-      width: 150px; /* bigger logo */
+      width: 150px; /* logo size */
       height: auto;
+      display: block;
+      background: transparent; /* ensure no black box */
     }
 
     .nav {
