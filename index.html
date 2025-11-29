@@ -78,17 +78,23 @@
     .hero-left img {
       max-width: 300px;
       margin: 0 auto;
-      border-radius: 50%;
+      border-radius: 50%; /* circular */
       border: 4px solid #00dfff;
       padding: 5px;
       box-shadow: 0 0 15px #00dfff, 0 0 30px #00dfff, 0 0 45px #00dfff;
-      animation: breatheGlow 4s infinite ease-in-out;
+      animation: breatheGlow 4s infinite ease-in-out; /* slow breathing effect */
     }
 
     @keyframes breatheGlow {
-      0% { box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff; }
-      50% { box-shadow: 0 0 25px #00dfff, 0 0 50px #00dfff, 0 0 75px #00dfff; }
-      100% { box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff; }
+      0% {
+        box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff;
+      }
+      50% {
+        box-shadow: 0 0 25px #00dfff, 0 0 50px #00dfff, 0 0 75px #00dfff;
+      }
+      100% {
+        box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff;
+      }
     }
 
     .hero-title {
@@ -147,11 +153,12 @@
       margin-top: 15px;
       position: relative;
       display: flex;
-      gap: 10px;
+      gap: 15px; /* space between buttons */
       justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .donate-btn {
+    .donate-btn, .raffle-btn {
       padding: 10px 25px;
       font-size: 16px;
       background: #ffcc00;
@@ -162,7 +169,7 @@
       transition: background 0.3s;
     }
 
-    .donate-btn:hover {
+    .donate-btn:hover, .raffle-btn:hover {
       background: #ffb800;
     }
 
@@ -258,8 +265,7 @@
 
         <div class="donate-wrap">
           <button onclick="toggleDonationOptions()" class="donate-btn">DONATE</button>
-          <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" class="donate-btn">XEC RAFFLE</a>
-
+          <button onclick="window.open('https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff','_blank')" class="raffle-btn">XEC RAFFLE</button>
           <div id="donationOptions">
             <ul>
               <li>
@@ -283,6 +289,15 @@
             </ul>
           </div>
         </div>
+
+        <!-- New CashTab install link -->
+        <p style="margin-top: 10px; font-size: 0.95em; color: #fff;">
+          Don't have a XEC Wallet? 
+          <a href="https://cashtab.com/" target="_blank" style="color: #00dfff; font-weight: bold; text-decoration: underline;">
+            CLICK HERE
+          </a>
+        </p>
+
       </div>
     </div>
   </main>
