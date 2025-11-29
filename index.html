@@ -6,7 +6,6 @@
   <title>XEC ARMY NFT</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Page background & reset */
     html, body {
       margin: 0;
       padding: 0;
@@ -24,7 +23,6 @@
       background: transparent;
     }
 
-    /* Header */
     .site-header {
       display: flex;
       flex-direction: column;
@@ -75,52 +73,54 @@
 
     .hero-inner {
       display: flex;
-      flex-wrap: wrap;
-      max-width: 1200px;
+      flex-direction: column; /* stack vertically */
+      align-items: center;
+      max-width: 600px;
       width: 100%;
-      justify-content: center;
       gap: 20px;
+      text-align: center;
     }
 
-    .hero-left, .hero-right {
-      flex: 1 1 300px;
-      box-sizing: border-box;
+    .hero-left {
+      width: 100%;
+    }
+
+    .hero-left img {
+      max-width: 300px;
+      margin: 0 auto;
     }
 
     .hero-title {
-      font-size: 2em;
-      margin: 0 0 10px 0;
-      text-align: center;
+      font-size: 1.8em;
+      margin: 10px 0 0 0;
     }
 
     .hero-sub {
       font-size: 1.2em;
-      margin-bottom: 10px;
-      text-align: center;
+      margin: 5px 0 0 0;
     }
 
     .hero-desc {
       font-size: 1em;
       color: #cccccc;
-      margin-top: 10px;
+      margin: 10px 0 0 0;
       line-height: 1.5;
-      text-align: center;
     }
 
-    /* Loading bar only (no image) */
     .launch-wrap {
-      margin: 40px auto; /* space above and below */
+      margin: 20px 0;
       text-align: center;
-      max-width: 400px; /* wider bar */
+      max-width: 400px;
+      width: 100%;
     }
 
     .loading-bar {
       width: 100%;
-      height: 25px; /* taller bar */
+      height: 25px;
       background-color: #333;
       border-radius: 12px;
-      margin: 0 auto;
       overflow: hidden;
+      margin: 10px auto;
     }
 
     .loading-fill {
@@ -138,14 +138,12 @@
 
     @keyframes pulseBar {
       0% { width: 50%; }
-      100% { width: 50.5%; } /* subtle pulsation */
+      100% { width: 50.5%; }
     }
 
-    /* Multi-Crypto Donate Button */
     .donate-wrap {
+      margin-top: 15px;
       position: relative;
-      display: inline-block;
-      margin-top: 20px;
     }
 
     .donate-btn {
@@ -157,8 +155,6 @@
       cursor: pointer;
       font-weight: bold;
       transition: background 0.3s;
-      position: relative;
-      z-index: 1;
     }
 
     .donate-btn:hover {
@@ -216,13 +212,13 @@
       margin-right: 8px;
     }
 
-    /* Footer */
     .site-footer {
       text-align: center;
       padding: 15px;
       background: #111;
       color: #fff;
     }
+
   </style>
 </head>
 <body>
@@ -239,27 +235,25 @@
 
   <main class="hero">
     <div class="hero-inner">
-      <!-- LEFT: Character -->
-      <aside class="hero-left">
-        <img src="character.png" alt="XEC character" class="character-img">
-      </aside>
+      <!-- Character Image -->
+      <div class="hero-left">
+        <img src="character.png" alt="XEC character">
+      </div>
 
-      <!-- RIGHT: Text + Loading bar + Description + Donate -->
-      <section class="hero-right">
-        <h1 class="hero-title">WE ARE LAUNCHING SOON</h1>
+      <!-- Text under character -->
+      <div class="hero-text">
+        <h1 class="hero-title">WELCOME TO XEC ARMY, THE LARGEST XEC NFT COLLECTION</h1>
+        <p class="hero-sub">The Largest NFTs Collections</p>
+        <p class="hero-desc">WE ARE LAUNCHING SOON</p>
 
         <div class="launch-wrap">
-          <!-- Only horizontal loading bar -->
           <div class="loading-bar">
             <div class="loading-fill"></div>
           </div>
         </div>
 
-        <!-- Multi‑Crypto Donate Button -->
         <div class="donate-wrap">
-          <button onclick="toggleDonationOptions()" class="donate-btn">
-            DONATE
-          </button>
+          <button onclick="toggleDonationOptions()" class="donate-btn">DONATE</button>
           <div id="donationOptions">
             <ul>
               <li>
@@ -283,11 +277,8 @@
             </ul>
           </div>
         </div>
+      </div>
 
-        <p class="hero-desc">
-          Be part of the XEC ARMY — discover, collect, and showcase exclusive NFTs created for the ultimate crypto and digital art experience.
-        </p>
-      </section>
     </div>
   </main>
 
@@ -296,7 +287,6 @@
   </footer>
 
   <script>
-    // Donate popup
     function toggleDonationOptions() {
       const el = document.getElementById('donationOptions');
       el.classList.toggle('show');
