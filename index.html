@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XEC ARMY Full-Screen Mosaic</title>
+<title>XEC ARMY Full Background Mosaic</title>
 <style>
   body, html {
     margin: 0;
@@ -76,25 +76,23 @@
 const totalImages = 26;
 const grid = document.getElementById('grid');
 
-for (let i = 0; i < totalImages; i++) {
+// Calculate number of cells needed to cover full screen
+const cellWidth = window.innerWidth > 600 ? 120 : 80;
+const cellHeight = window.innerWidth > 600 ? 120 : 80;
+const cols = Math.ceil(window.innerWidth / cellWidth);
+const rows = Math.ceil(window.innerHeight / cellHeight);
+const totalCells = cols * rows;
+
+// Fill grid with images (repeating if needed)
+for (let i = 0; i < totalCells; i++) {
   const img = document.createElement('img');
-  img.src = `bg${i+1}.png`;
+  img.src = `bg${(i % totalImages) + 1}.png`; // repeat images if needed
   img.classList.add('nft');
 
   // random animation delay for natural movement
   img.style.animationDelay = `${Math.random() * 4}s, ${Math.random() * 10}s`;
 
   grid.appendChild(img);
-}
-
-// Duplicate images to fill remaining cells and cover full screen
-const cellsNeeded = Math.ceil((window.innerWidth / 120) * (window.innerHeight / 120));
-const currentCount = grid.children.length;
-
-for (let i = currentCount; i < cellsNeeded; i++) {
-  const clone = grid.children[i % totalImages].cloneNode();
-  clone.style.animationDelay = `${Math.random() * 4}s, ${Math.random() * 10}s`;
-  grid.appendChild(clone);
 }
 </script>
 
