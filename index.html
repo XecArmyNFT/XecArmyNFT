@@ -17,20 +17,43 @@
       font-weight: bold;
       margin-top: 15px;
       transition: background 0.3s;
+      position: relative;
+      z-index: 1;
     }
     .donate-btn:hover {
       background: #ffb800;
     }
+
     #donationOptions {
-      display: none;
-      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      position: absolute;
+      background: #222;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 5px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 2;
     }
+
+    #donationOptions.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
     #donationOptions ul {
       list-style: none;
       padding: 0;
+      margin: 0;
       display: flex;
-      gap: 10px;
+      flex-direction: column;
+      gap: 8px;
     }
+
     #donationOptions ul li a {
       display: inline-flex;
       align-items: center;
@@ -41,13 +64,21 @@
       text-decoration: none;
       transition: background 0.3s;
     }
+
     #donationOptions ul li a:hover {
       background: #555;
     }
+
     #donationOptions ul li a img {
       width: 20px;
       height: 20px;
       margin-right: 6px;
+    }
+
+    /* Wrap for positioning popup relative to button */
+    .donate-wrap {
+      position: relative;
+      display: inline-block;
     }
   </style>
 </head>
@@ -80,40 +111,35 @@
           <img src="launching.png" alt="Launching soon" class="launch-img">
         </div>
 
-        <!-- Multi‑Crypto Donate Button -->
-        <button onclick="toggleDonationOptions()" class="donate-btn">
-          DONATE
-        </button>
+        <!-- Multi‑Crypto Donate Button with Popup -->
+        <div class="donate-wrap">
+          <button onclick="toggleDonationOptions()" class="donate-btn">
+            DONATE
+          </button>
 
-        <div id="donationOptions">
-          <ul>
-            <li>
-              <a href="ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ecash/standard.png" alt="XEC logo" />
-                XEC
-              </a>
-            </li>
-            <li>
-              <a href="bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/bitcoin-cash/standard.png" alt="BCH logo" />
-                BCH
-              </a>
-            </li>
-            <li>
-              <a href="ethereum:0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ethereum/standard.png" alt="ETH logo" />
-                ETH
-              </a>
-            </li>
-            <li>
-              <a href="https://polygonscan.com/address/0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/polygon/standard.png" alt="MATIC logo" />
-                MATIC
-              </a>
-            </li>
-          </ul>
+          <div id="donationOptions">
+            <ul>
+              <li>
+                <a href="ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ecash/standard.png" alt="XEC logo" />
+                  XEC
+                </a>
+              </li>
+              <li>
+                <a href="bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/bitcoin-cash/standard.png" alt="BCH logo" />
+                  BCH
+                </a>
+              </li>
+              <li>
+                <a href="ethereum:0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ethereum/standard.png" alt="ETH logo" />
+                  ETH
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-
       </section>
     </div>
   </main>
@@ -125,8 +151,17 @@
   <script>
     function toggleDonationOptions() {
       const el = document.getElementById('donationOptions');
-      el.style.display = el.style.display === 'none' ? 'flex' : 'none';
+      el.classList.toggle('show');
     }
+
+    // Optional: Close popup when clicking outside
+    document.addEventListener('click', function(event) {
+      const popup = document.getElementById('donationOptions');
+      const button = document.querySelector('.donate-btn');
+      if (!popup.contains(event.target) && !button.contains(event.target)) {
+        popup.classList.remove('show');
+      }
+    });
   </script>
 </body>
 </html>
