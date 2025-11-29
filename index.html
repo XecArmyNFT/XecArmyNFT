@@ -18,7 +18,6 @@
       color: #fff;
     }
 
-    /* Make all images responsive */
     img {
       max-width: 100%;
       height: auto;
@@ -29,22 +28,22 @@
     /* Header */
     .site-header {
       display: flex;
-      flex-direction: column; /* stack logo and nav */
-      align-items: center;    /* center horizontally */
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
       padding: 10px 20px;
-      background: transparent; /* transparent so gradient shows through */
+      background: transparent;
       color: #fff;
     }
 
     .site-header .logo {
       margin-bottom: 10px;
-      background: transparent; /* remove black box around logo */
+      background: transparent;
       padding: 0;
     }
 
     .site-header .logo img {
-      width: 180px; /* updated bigger logo size */
+      width: 210px; /* updated bigger logo size */
       height: auto;
       display: block;
       background: transparent;
@@ -52,19 +51,20 @@
 
     .nav {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: center; /* center horizontally */
     }
 
     .nav a {
       color: #fff;
       text-decoration: none;
       padding: 5px 10px;
+      font-weight: bold;
     }
 
     .nav a.active {
-      font-weight: bold;
+      text-decoration: underline;
     }
 
     /* Hero Section */
@@ -84,28 +84,48 @@
     }
 
     .hero-left, .hero-right {
-      flex: 1 1 300px; /* shrink on mobile */
+      flex: 1 1 300px;
       box-sizing: border-box;
     }
 
     .hero-title {
       font-size: 2em;
       margin: 0 0 10px 0;
+      text-align: center;
     }
 
     .hero-sub {
       font-size: 1.2em;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .hero-desc {
+      font-size: 1em; /* slightly smaller than subtitle */
+      color: #cccccc; /* lighter color for contrast */
+      margin-top: 10px;
+      line-height: 1.5;
+      text-align: center;
     }
 
     .launch-wrap {
       margin-bottom: 15px;
+      text-align: center;
+    }
+
+    /* Countdown timer */
+    .countdown {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #ffcc00;
     }
 
     /* Multi-Crypto Donate Button */
     .donate-wrap {
       position: relative;
       display: inline-block;
+      margin-top: 20px;
     }
 
     .donate-btn {
@@ -170,7 +190,6 @@
       background: #555;
     }
 
-    /* Crypto icons size stays 20px */
     #donationOptions ul li a img {
       width: 20px;
       height: 20px;
@@ -205,21 +224,25 @@
         <img src="character.png" alt="XEC character" class="character-img">
       </aside>
 
-      <!-- RIGHT: Text + Launch image + Donate -->
+      <!-- RIGHT: Text + Launch image + Countdown + Description + Donate -->
       <section class="hero-right">
         <h1 class="hero-title">WELCOME TO XEC ARMY NFTS</h1>
         <p class="hero-sub">The Largest NFTs Collections</p>
+        <p class="hero-desc">
+          Be part of the XEC ARMY — discover, collect, and showcase exclusive NFTs created for the ultimate crypto and digital art experience.
+        </p>
 
         <div class="launch-wrap">
           <img src="launching.png" alt="Launching soon" class="launch-img">
+          <!-- Infinite countdown timer -->
+          <div class="countdown" id="countdown">00 : 00 : 00 : 00</div>
         </div>
 
-        <!-- Multi‑Crypto Donate Button with Popup -->
+        <!-- Multi‑Crypto Donate Button -->
         <div class="donate-wrap">
           <button onclick="toggleDonationOptions()" class="donate-btn">
             DONATE
           </button>
-
           <div id="donationOptions">
             <ul>
               <li>
@@ -252,12 +275,12 @@
   </footer>
 
   <script>
+    // Donate popup
     function toggleDonationOptions() {
       const el = document.getElementById('donationOptions');
       el.classList.toggle('show');
     }
 
-    // Close popup when clicking outside
     document.addEventListener('click', function(event) {
       const popup = document.getElementById('donationOptions');
       const button = document.querySelector('.donate-btn');
@@ -265,6 +288,22 @@
         popup.classList.remove('show');
       }
     });
+
+    // Infinite countdown timer
+    function updateCountdown() {
+      const now = new Date();
+      const target = new Date(now.getTime() + 24*60*60*1000); // resets every 24 hours
+      const diff = target - now;
+
+      const hours = String(Math.floor(diff / (1000*60*60))).padStart(2, '0');
+      const minutes = String(Math.floor((diff % (1000*60*60)) / (1000*60))).padStart(2, '0');
+      const seconds = String(Math.floor((diff % (1000*60)) / 1000)).padStart(2, '0');
+
+      document.getElementById('countdown').textContent = `00 : ${hours} : ${minutes} : ${seconds}`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // initial call
   </script>
 </body>
 </html>
