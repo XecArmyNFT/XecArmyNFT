@@ -3,88 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XEC ARMY 3D Carousel</title>
+<title>XEC ARMY Dynamic Mosaic</title>
 <style>
   body, html {
     margin: 0;
     padding: 0;
     overflow: hidden;
     background: black;
-    height: 100%;
-    perspective: 1000px; /* needed for 3D */
-  }
-
-  #carousel {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-auto-rows: 80px;
+    gap: 8px;
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
     position: relative;
-    transform-style: preserve-3d;
-    transform: translateZ(0);
-    transform-origin: center center;
-    margin: 0 auto;
-    top: 0;
-    left: 0;
   }
 
   .nft {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-style: preserve-3d;
-    transform-origin: center center;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     opacity: 0.2;
-    filter: drop-shadow(0 0 15px cyan) blur(2px);
+    filter: drop-shadow(0 0 10px cyan) blur(2px);
     mix-blend-mode: screen;
-    transition: transform 0.5s, opacity 0.5s;
+    position: relative;
+    animation: pulse 4s infinite alternate, drift 10s infinite linear;
+    transition: transform 0.3s, opacity 0.3s;
   }
 
-  .nft:hover {
-    transform: scale(1.2) translateZ(50px);
+  .nft:hover,
+  .nft:active {
+    transform: scale(1.2) rotate(5deg);
     opacity: 1;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 10px cyan) blur(2px); }
+    25% { transform: scale(1.05) rotate(2deg); filter: drop-shadow(0 0 10px magenta) blur(2px); }
+    50% { transform: scale(1.1) rotate(-2deg); filter: drop-shadow(0 0 10px lime) blur(2px); }
+    75% { transform: scale(1.05) rotate(1deg); filter: drop-shadow(0 0 10px yellow) blur(2px); }
+    100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 10px cyan) blur(2px); }
+  }
+
+  @keyframes drift {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(5px, -5px); }
+    50% { transform: translate(-5px, 5px); }
+    75% { transform: translate(5px, 5px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 600px) {
+    #grid {
+      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+      grid-auto-rows: 60px;
+      gap: 5px;
+      padding: 5px;
+    }
   }
 </style>
 </head>
 <body>
 
-<div id="carousel"></div>
+<div id="grid"></div>
 
 <script>
-const totalImages = 26; // your images bg1.png -> bg26.png
-const carousel = document.getElementById('carousel');
-const radius = 400; // radius of orbit
-const centerX = window.innerWidth / 2;
-const centerY = window.innerHeight / 2;
-const nfts = [];
+const totalImages = 26;
+const grid = document.getElementById('grid');
 
-// create NFT elements and position in orbit
 for (let i = 0; i < totalImages; i++) {
-  const nft = document.createElement('img');
-  nft.src = `bg${i+1}.png`;
-  nft.classList.add('nft');
-  carousel.appendChild(nft);
-  nfts.push({
-    el: nft,
-    angle: (i / totalImages) * Math.PI * 2 // spread evenly in circle
-  });
-}
+  const img = document.createElement('img');
+  img.src = `bg${i+1}.png`;
+  img.classList.add('nft');
 
-// animation loop
-let rotation = 0;
-function animate() {
-  rotation += 0.002; // rotation speed
-  nfts.forEach((nftObj, i) => {
-    const angle = nftObj.angle + rotation;
-    const x = centerX + radius * Math.cos(angle) - 64; // adjust image width
-    const y = centerY + radius * Math.sin(angle) * 0.5; // ellipse effect
-    const scale = 0.5 + 0.5 * (1 + Math.sin(angle)); // depth effect
-    const opacity = 0.2 + 0.8 * (0.5 + 0.5 * Math.sin(angle));
-    nftObj.el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
-    nftObj.el.style.zIndex = Math.floor(scale * 1000);
-    nftObj.el.style.opacity = opacity;
-  });
-  requestAnimationFrame(animate);
+  // random animation delay for natural movement
+  img.style.animationDelay = `${Math.random() * 4}s, ${Math.random() * 10}s`;
+
+  grid.appendChild(img);
 }
-animate();
 </script>
 
 </body>
