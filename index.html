@@ -13,7 +13,7 @@
     background: black;
     width: 100vw;
     height: 100vh;
-    font-family: 'Orbitron', sans-serif; /* futuristic font */
+    font-family: 'Orbitron', sans-serif;
   }
 
   #grid {
@@ -43,13 +43,12 @@
     opacity: 1;
   }
 
-  /* Logo in center but slightly higher */
   #logo {
     position: absolute;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 870px; /* ~23 cm */
+    max-width: 870px; 
     max-height: 870px;
     width: auto;
     height: auto;
@@ -57,23 +56,22 @@
     filter: drop-shadow(0 0 35px cyan);
   }
 
-  /* Welcome text under logo */
   #welcome {
     position: absolute;
-    top: 65%; /* below the logo */
+    top: 68%;
     left: 50%;
     transform: translateX(-50%);
     color: cyan;
-    font-size: 4vw; /* relative to screen width */
-    font-weight: 700; /* bold */
+    font-weight: 700;
     letter-spacing: 1px;
     text-align: center;
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
     z-index: 10;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  /* Mobile optimization */
   @media (max-width: 600px) {
     #grid {
       grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
@@ -86,8 +84,7 @@
     }
 
     #welcome {
-      font-size: 6vw;
-      top: 70%;
+      top: 72%;
       letter-spacing: 0.5px;
     }
   }
@@ -102,7 +99,10 @@
 <script>
 const totalImages = 26;
 const grid = document.getElementById('grid');
+const logo = document.getElementById('logo');
+const welcome = document.getElementById('welcome');
 
+// Fill the mosaic grid
 const cellWidth = window.innerWidth > 600 ? 120 : 80;
 const cellHeight = window.innerWidth > 600 ? 120 : 80;
 const cols = Math.ceil(window.innerWidth / cellWidth);
@@ -115,6 +115,21 @@ for (let i = 0; i < totalCells; i++) {
   img.classList.add('nft');
   grid.appendChild(img);
 }
+
+// Function to resize text to match logo width
+function adjustTextWidth() {
+  const logoWidth = logo.getBoundingClientRect().width;
+  welcome.style.maxWidth = `${logoWidth * 1.05}px`; // slightly wider than logo
+  // adjust font size proportionally
+  const baseFont = window.innerWidth > 600 ? 40 : 20; // starting font size
+  welcome.style.fontSize = `${Math.min(baseFont, logoWidth / 20)}px`;
+}
+
+// Initial adjustment
+adjustTextWidth();
+
+// Adjust on window resize
+window.addEventListener('resize', adjustTextWidth);
 </script>
 
 </body>
