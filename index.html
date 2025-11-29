@@ -25,6 +25,7 @@
     display: flex;
     width: max-content;
     height: 20%;
+    white-space: nowrap;
   }
 
   #banner1 { top: 0; }
@@ -85,28 +86,34 @@ function getRandomImages(count) {
   return arr;
 }
 
-// Add images to banners
-banners.forEach((b, index) => {
+// Add images to banners and duplicate for seamless loop
+banners.forEach((b) => {
   const banner = document.getElementById(`banner${b}`);
-  const images = getRandomImages(totalImages); // shuffle all images
+  const images = getRandomImages(totalImages);
+
   images.forEach(num => {
-    const img = document.createElement('img');
-    img.src = `bg${num}.png`;
-    banner.appendChild(img);
+    const img1 = document.createElement('img');
+    img1.src = `bg${num}.png`;
+    const img2 = document.createElement('img');
+    img2.src = `bg${num}.png`; // duplicate
+    banner.appendChild(img1);
+    banner.appendChild(img2);
   });
 });
 
-// Animate banners horizontally
+// Infinite horizontal animation
 banners.forEach((b, i) => {
   const banner = document.getElementById(`banner${b}`);
-  const direction = i % 2 === 0 ? 1 : -1; // opposite direction
+  const direction = i % 2 === 0 ? 1 : -1;
   let pos = 0;
 
   function animate() {
-    pos += 0.3 * direction; // adjust speed here
-    if (pos > window.innerWidth) pos = -banner.scrollWidth;
-    if (pos < -banner.scrollWidth) pos = window.innerWidth;
-    banner.style.transform = `translateX(${pos}px)`;
+    pos += 0.3 * direction;
+    // reset seamlessly when half the banner scrolls past
+    const resetPos = banner.scrollWidth / 2;
+    if (direction === 1 && pos >= resetPos) pos = 0;
+    if (direction === -1 && pos <= -resetPos) pos = 0;
+    banner.style.transform = `translateX(${-pos}px)`; // negative for seamless scroll
     requestAnimationFrame(animate);
   }
 
