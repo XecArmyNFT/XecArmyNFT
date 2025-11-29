@@ -4,28 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>XEC ARMY NFT</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       min-height: 100%;
-      overflow-x: hidden;
       font-family: Arial, sans-serif;
       color: #fff;
-      background: linear-gradient(to bottom, #000000, #2a0039);
+      overflow-x: hidden;
       position: relative;
+      background: linear-gradient(to bottom, #000000, #2a0039);
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      background: transparent;
-    }
+    img { max-width: 100%; height: auto; display: block; }
 
-    /* Full-screen fade slideshow background */
+    /* Full-screen slideshow background */
     .slideshow-bg {
       position: fixed;
       top: 0;
@@ -34,8 +28,7 @@
       height: 100%;
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0;
+      opacity: 0.6;
       z-index: -1;
       transition: opacity 1s ease-in-out;
     }
@@ -45,60 +38,44 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       padding: 2vw;
-      background: transparent;
-      color: #fff;
     }
 
-    .site-header .logo img {
-      width: 40vw;  /* scales with viewport */
-      max-width: 210px;
-      height: auto;
-      display: block;
-    }
+    .site-header .logo img { width: 40vw; max-width: 210px; height: auto; }
 
     .nav {
       display: flex;
       gap: 5vw;
       flex-wrap: wrap;
       justify-content: center;
+      margin-top: 1vw;
     }
 
     .nav a {
       color: #fff;
       text-decoration: none;
-      padding: 0.5vw 1vw;
       font-weight: bold;
       font-size: 4vw;
       max-font-size: 16px;
+      padding: 0.5vw 1vw;
     }
 
-    .nav a.active {
-      text-decoration: underline;
-    }
+    .nav a.active { text-decoration: underline; }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      min-height: 80vh; /* fills screen */
+      min-height: 80vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      gap: 2vw;
+      text-align: center;
       padding: 2vw;
     }
 
-    .hero-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 90%;
-      width: 100%;
-      gap: 2vw;
-      text-align: center;
-    }
-
     .hero-left img {
-      width: 50vw;  /* scales with screen */
+      width: 50vw;
       max-width: 300px;
       border-radius: 50%;
       border: 0.5vw solid #00dfff;
@@ -114,52 +91,52 @@
     }
 
     .hero-title { font-size: 6vw; font-weight: bold; margin: 1vw 0 0.5vw 0; }
-    .hero-sub { font-size: 4vw; margin: 0.5vw 0 1vw 0; color: #ffcc00; }
-    .hero-desc { font-size: 5vw; margin: 1vw 0 1.5vw 0; font-weight: bold; }
+    .hero-sub { font-size: 4vw; color: #ffcc00; margin: 0.5vw 0 1vw 0; }
+    .hero-desc { font-size: 5vw; font-weight: bold; margin: 1vw 0 1.5vw 0; }
 
-    .launch-wrap { margin: 2vw 0; text-align: center; width: 100%; max-width: 90%; }
-    .loading-bar { width: 100%; height: 5vw; max-height: 25px; background-color: #333; border-radius: 12px; overflow: hidden; margin: 0 auto; }
-    .loading-fill { height: 100%; background-color: #ffcc00; border-radius: 12px 0 0 12px; width: 0%; animation: fillBar 3s forwards ease-in-out, pulseBar 2s 3s infinite alternate ease-in-out; }
-
+    .launch-wrap { margin: 2vw 0; width: 100%; max-width: 400px; }
+    .loading-bar { width: 100%; height: 5vw; max-height: 25px; background: #333; border-radius: 12px; overflow: hidden; margin: 0 auto; }
+    .loading-fill { height: 100%; background: #ffcc00; border-radius: 12px 0 0 12px; width: 0%; animation: fillBar 3s forwards ease-in-out, pulseBar 2s 3s infinite alternate ease-in-out; }
     @keyframes fillBar { from { width: 0%; } to { width: 50%; } }
     @keyframes pulseBar { 0% { width: 50%; } 100% { width: 50.5%; } }
 
+    /* Donate buttons */
     .donate-wrap { margin-top: 1.5vw; position: relative; }
-    .donate-btn { padding: 1vw 2.5vw; font-size: 4vw; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+    .donate-btn {
+      font-size: 4vw; max-font-size: 16px;
+      padding: 1vw 2.5vw;
+      background: #ffcc00;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 0.5vw;
+    }
     .donate-btn:hover { background: #ffb800; }
 
     #donationOptions {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      background: #222;
-      padding: 1vw;
-      border-radius: 8px;
-      margin-top: 0.5vw;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.3s ease;
-      z-index: 2;
+      display: flex; flex-direction: column; position: absolute;
+      background: #222; padding: 1vw; border-radius: 8px; margin-top: 0.5vw;
+      opacity: 0; pointer-events: none; transition: all 0.3s ease; z-index: 2;
       min-width: 120px;
     }
-
     #donationOptions.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
     #donationOptions ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5vw; }
     #donationOptions ul li a { display: inline-flex; align-items: center; padding: 0.5vw 1vw; background: #333; color: #fff; border-radius: 5px; text-decoration: none; transition: background 0.3s; }
     #donationOptions ul li a:hover { background: #555; }
     #donationOptions ul li a img { width: 4vw; height: 4vw; margin-right: 0.5vw; max-width: 20px; max-height: 20px; }
 
-    .site-footer { text-align: center; padding: 1.5vw; background: #111; color: #fff; display: flex; justify-content: center; align-items: center; gap: 1vw; flex-wrap: wrap; font-size: 3vw; }
-    .social-icons { display: inline-flex; gap: 1vw; margin-left: 1vw; vertical-align: middle; }
+    /* Footer */
+    .site-footer { text-align: center; padding: 1.5vw; background: #111; display: flex; justify-content: center; align-items: center; gap: 1vw; flex-wrap: wrap; font-size: 3vw; }
     .social-icons a { display: inline-block; width: 6vw; height: 6vw; max-width: 24px; max-height: 24px; }
-    .social-icon { width: 100%; height: 100%; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); transition: filter 0.3s; }
+    .social-icon { width: 100%; height: 100%; filter: invert(100%); transition: filter 0.3s; }
     .social-icon:hover { filter: invert(52%) sepia(80%) saturate(4642%) hue-rotate(155deg) brightness(100%) contrast(95%); }
 
   </style>
 </head>
 <body>
 
-  <!-- Full-screen fade slideshow background -->
+  <!-- Slideshow background -->
   <div class="slideshow-bg" id="slideshowBg1"></div>
   <div class="slideshow-bg" id="slideshowBg2"></div>
 
@@ -175,57 +152,55 @@
   </header>
 
   <main class="hero">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <img src="character.png" alt="XEC character">
+    <div class="hero-left">
+      <img src="character.png" alt="XEC character">
+    </div>
+
+    <div class="hero-text">
+      <h1 class="hero-title">WELCOME TO XEC ARMY</h1>
+      <p class="hero-sub">The Largest NFTs Collections</p>
+      <p class="hero-desc">WE ARE LAUNCHING SOON</p>
+
+      <div class="launch-wrap">
+        <div class="loading-bar">
+          <div class="loading-fill"></div>
+        </div>
       </div>
 
-      <div class="hero-text">
-        <h1 class="hero-title">WELCOME TO XEC ARMY</h1>
-        <p class="hero-sub">The Largest NFTs Collections</p>
-        <p class="hero-desc">WE ARE LAUNCHING SOON</p>
-
-        <div class="launch-wrap">
-          <div class="loading-bar">
-            <div class="loading-fill"></div>
-          </div>
+      <div class="donate-wrap">
+        <button onclick="toggleDonationOptions()" class="donate-btn">DONATE</button>
+        <div id="donationOptions">
+          <ul>
+            <li>
+              <a href="https://cashtab.com/#/send/ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ecash/standard.png" alt="XEC logo" />
+                XEC
+              </a>
+            </li>
+            <li>
+              <a href="bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/bitcoin-cash/standard.png" alt="BCH logo" />
+                BCH
+              </a>
+            </li>
+            <li>
+              <a href="ethereum:0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ethereum/standard.png" alt="ETH logo" />
+                ETH
+              </a>
+            </li>
+          </ul>
         </div>
-
-        <div class="donate-wrap">
-          <button onclick="toggleDonationOptions()" class="donate-btn">DONATE</button>
-          <div id="donationOptions">
-            <ul>
-              <li>
-                <a href="https://cashtab.com/#/send/ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
-                  <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ecash/standard.png" alt="XEC logo" />
-                  XEC
-                </a>
-              </li>
-              <li>
-                <a href="bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx" target="_blank">
-                  <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/bitcoin-cash/standard.png" alt="BCH logo" />
-                  BCH
-                </a>
-              </li>
-              <li>
-                <a href="ethereum:0x391ffef43b676d88e6da78bf337230f6b0d39184" target="_blank">
-                  <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ethereum/standard.png" alt="ETH logo" />
-                  ETH
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="donate-wrap">
-          <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" class="donate-btn" target="_blank">XEC RAFFLE</a>
-        </div>
-
-        <p style="margin-top:1vw;">
-          Don't have a XEC Wallet? 
-          <a href="https://cashtab.com/" target="_blank" style="color:#00dfff; font-weight:bold;">CLICK HERE</a>
-        </p>
       </div>
+
+      <div class="donate-wrap">
+        <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" class="donate-btn" target="_blank">XEC RAFFLE</a>
+      </div>
+
+      <p style="margin-top:1vw;">
+        Don't have a XEC Wallet? 
+        <a href="https://cashtab.com/" target="_blank" style="color:#00dfff; font-weight:bold;">CLICK HERE</a>
+      </p>
     </div>
   </main>
 
@@ -257,10 +232,7 @@
         popup.classList.remove('show');
       }
     });
-  </script>
 
-  <!-- Smooth fade slideshow script -->
-  <script>
     const images = [
       'bg1.png','bg2.png','bg3.png','bg4.png','bg5.png',
       'bg6.png','bg7.png','bg8.png','bg9.png','bg10.png'
@@ -283,7 +255,7 @@
       const otherDiv = document.getElementById(activeDiv === 1 ? 'slideshowBg2' : 'slideshowBg1');
 
       bgDiv.style.backgroundImage = `url(${images[newIndex]})`;
-      bgDiv.style.opacity = 0.60;
+      bgDiv.style.opacity = 0.6;
       otherDiv.style.opacity = 0;
 
       currentIndex = newIndex;
