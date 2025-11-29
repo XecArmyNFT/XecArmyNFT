@@ -25,23 +25,28 @@
     /* Header */
     .site-header {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column; /* stack logo and nav */
+      align-items: center;    /* center horizontally */
+      justify-content: center; /* center vertically */
       padding: 10px 20px;
       background: #111;
       color: #fff;
-      flex-wrap: wrap;
+    }
+
+    .site-header .logo {
+      margin-bottom: 10px; /* space between logo and nav */
     }
 
     .site-header .logo img {
-      width: 150px; /* bigger logo */
+      width: 150px; /* slightly bigger logo */
       height: auto;
     }
 
     .nav {
       display: flex;
-      gap: 15px;
+      gap: 20px;
       flex-wrap: wrap;
+      justify-content: center; /* center nav links */
     }
 
     .nav a {
@@ -157,7 +162,7 @@
       background: #555;
     }
 
-    /* Crypto icons stay 20px */
+    /* Crypto icons size stays 20px */
     #donationOptions ul li a img {
       width: 20px;
       height: 20px;
@@ -182,7 +187,6 @@
       <a href="#">Home</a>
       <a class="active" href="#">Collections</a>
       <a href="#">About us</a>
-      <div class="toggle" aria-hidden="true"></div>
     </nav>
   </header>
 
