@@ -107,18 +107,33 @@
       text-align: center;
     }
 
-    /* Launch image + countdown */
+    /* Launch image + loading bar */
     .launch-wrap {
       margin-bottom: 15px;
-      text-align: center; /* centers image and countdown */
+      text-align: center; /* centers image and loading bar */
     }
 
-    .countdown {
-      font-size: 1.6em; /* slightly bigger */
-      font-weight: bold;
-      margin-top: 10px;
-      color: #ffcc00;
-      letter-spacing: 2px; /* spacing for readability */
+    .loading-bar {
+      width: 100%;
+      max-width: 300px;
+      height: 20px;
+      background-color: #333; /* empty bar color */
+      border-radius: 10px;
+      margin: 15px auto 0;
+      overflow: hidden;
+    }
+
+    .loading-fill {
+      height: 100%;
+      background-color: #ffcc00; 
+      border-radius: 10px 0 0 10px;
+      width: 50%; /* initial width */
+      animation: loadingAnim 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes loadingAnim {
+      0% { width: 30%; }
+      100% { width: 70%; }
     }
 
     /* Multi-Crypto Donate Button */
@@ -224,7 +239,7 @@
         <img src="character.png" alt="XEC character" class="character-img">
       </aside>
 
-      <!-- RIGHT: Text + Launch image + Countdown + Description + Donate -->
+      <!-- RIGHT: Text + Launch image + Loading bar + Description + Donate -->
       <section class="hero-right">
         <h1 class="hero-title">WELCOME TO XEC ARMY NFTS</h1>
         <p class="hero-sub">The Largest NFTs Collections</p>
@@ -234,8 +249,11 @@
 
         <div class="launch-wrap">
           <img src="launching.png" alt="Launching soon" class="launch-img">
-          <!-- Countdown timer directly under the launching image -->
-          <div class="countdown" id="countdown">00 : 00 : 00 : 00</div>
+
+          <!-- Animated Loading bar 30%–70% -->
+          <div class="loading-bar">
+            <div class="loading-fill"></div>
+          </div>
         </div>
 
         <!-- Multi‑Crypto Donate Button -->
@@ -288,25 +306,6 @@
         popup.classList.remove('show');
       }
     });
-
-    // Infinite countdown timer with days
-    function updateCountdown() {
-      const now = new Date();
-      // Target: 24 hours from now (infinite loop)
-      const target = new Date(now.getTime() + 24*60*60*1000);
-      const diff = target - now;
-
-      // Calculate days, hours, minutes, seconds
-      const days = String(Math.floor(diff / (1000*60*60*24))).padStart(2, '0');
-      const hours = String(Math.floor((diff % (1000*60*60*24)) / (1000*60*60))).padStart(2, '0');
-      const minutes = String(Math.floor((diff % (1000*60*60)) / (1000*60))).padStart(2, '0');
-      const seconds = String(Math.floor((diff % (1000*60)) / 1000)).padStart(2, '0');
-
-      document.getElementById('countdown').textContent = `${days} : ${hours} : ${minutes} : ${seconds}`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown(); // initial call
   </script>
 </body>
 </html>
