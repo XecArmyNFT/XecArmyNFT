@@ -152,6 +152,10 @@
     .donate-wrap {
       margin-top: 15px;
       position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     .donate-btn {
@@ -259,7 +263,9 @@
           </div>
         </div>
 
+        <!-- Donate + Raffle buttons side by side -->
         <div class="donate-wrap">
+          <!-- Donate Button -->
           <button onclick="toggleDonationOptions()" class="donate-btn">DONATE</button>
           <div id="donationOptions">
             <ul>
@@ -283,6 +289,23 @@
               </li>
             </ul>
           </div>
+
+          <!-- XEC Raffle Button -->
+          <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" target="_blank">
+            <button style="
+              padding: 10px 25px;
+              font-size: 16px;
+              background-color: #00d4d4; /* turquoise to match theme */
+              color: #000;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              font-weight: bold;
+              transition: background 0.3s;
+            ">
+              🎟️ XEC RAFFLE
+            </button>
+          </a>
         </div>
       </div>
     </div>
