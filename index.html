@@ -78,23 +78,17 @@
     .hero-left img {
       max-width: 300px;
       margin: 0 auto;
-      border-radius: 50%; /* circular */
+      border-radius: 50%;
       border: 4px solid #00dfff;
       padding: 5px;
       box-shadow: 0 0 15px #00dfff, 0 0 30px #00dfff, 0 0 45px #00dfff;
-      animation: breatheGlow 4s infinite ease-in-out; /* slow breathing effect */
+      animation: breatheGlow 4s infinite ease-in-out;
     }
 
     @keyframes breatheGlow {
-      0% {
-        box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff;
-      }
-      50% {
-        box-shadow: 0 0 25px #00dfff, 0 0 50px #00dfff, 0 0 75px #00dfff;
-      }
-      100% {
-        box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff;
-      }
+      0% { box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff; }
+      50% { box-shadow: 0 0 25px #00dfff, 0 0 50px #00dfff, 0 0 75px #00dfff; }
+      100% { box-shadow: 0 0 10px #00dfff, 0 0 20px #00dfff, 0 0 30px #00dfff; }
     }
 
     .hero-title {
@@ -153,12 +147,11 @@
       margin-top: 15px;
       position: relative;
       display: flex;
-      gap: 10px; /* space between Donate and Raffle button */
+      gap: 10px;
       justify-content: center;
-      flex-wrap: wrap;
     }
 
-    .donate-btn, .raffle-btn {
+    .donate-btn {
       padding: 10px 25px;
       font-size: 16px;
       background: #ffcc00;
@@ -167,14 +160,9 @@
       cursor: pointer;
       font-weight: bold;
       transition: background 0.3s;
-      text-decoration: none;
-      color: #000;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    .donate-btn:hover, .raffle-btn:hover {
+    .donate-btn:hover {
       background: #ffb800;
     }
 
@@ -270,11 +258,12 @@
 
         <div class="donate-wrap">
           <button onclick="toggleDonationOptions()" class="donate-btn">DONATE</button>
-          <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" class="raffle-btn" target="_blank">XEC RAFFLE</a>
+          <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" class="donate-btn">XEC RAFFLE</a>
+
           <div id="donationOptions">
             <ul>
               <li>
-                <a href="ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh">
+                <a href="https://cashtab.com/#/send/ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
                   <img src="https://cdn.jsdelivr.net/gh/simplr-sh/coin-logos/images/ecash/standard.png" alt="XEC logo" />
                   XEC
                 </a>
