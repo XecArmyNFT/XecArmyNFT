@@ -25,34 +25,35 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 5vh;
+      padding-top: 3vh; /* reduced from 5vh to move logo up */
     }
 
     .logo {
       max-width: 980px;
       width: 80%;
       height: auto;
+      margin-bottom: 0px; /* no extra space added */
     }
 
     .launching {
-      margin-top: 5px;
+      margin-top: 5px; /* keep launching image position */
       max-width: 600px;
       width: 60%;
       height: auto;
-      background: transparent; /* ensure transparency */
+      background: transparent;
       display: block;
     }
 
     @media (max-width: 768px) {
       .logo { width: 90%; max-width: 600px; }
       .launching { width: 70%; max-width: 400px; }
-      .hero { padding-top: 10vh; }
+      .hero { padding-top: 7vh; }
     }
 
     @media (max-width: 480px) {
       .logo { width: 95%; max-width: 400px; }
       .launching { width: 80%; max-width: 300px; }
-      .hero { padding-top: 12vh; }
+      .hero { padding-top: 9vh; }
     }
   </style>
 </head>
