@@ -48,20 +48,20 @@
       top: calc(50% + 220px);
       left: 50%;
       transform: translateX(-50%);
-      display: flex; /* horizontal layout */
+      display: flex;
       gap: 20px;
       z-index: 15;
       align-items: flex-start;
-      flex-wrap: nowrap; /* prevent wrapping on mobile */
+      flex-wrap: nowrap;
     }
     .donate-wrapper {
       position: relative;
-      display: inline-block; /* keeps buttons side by side */
+      display: inline-block;
     }
 
-    /* Matching professional buttons */
+    /* Professional buttons */
     .donate-btn {
-      background-color: #1abc9c; /* turquoise */
+      background-color: #1abc9c;
       color: #fff;
       font-weight: bold;
       border-radius: 10px;
@@ -74,7 +74,7 @@
     .donate-btn:hover { background-color: #16a085; }
 
     .raffle-btn {
-      background-color: #8e44ad; /* purple */
+      background-color: #8e44ad;
       color: #fff;
       font-weight: bold;
       border-radius: 10px;
@@ -86,14 +86,14 @@
     }
     .raffle-btn:hover { background-color: #732d91; }
 
-    /* Donation dropdown - professional */
+    /* Donation dropdown */
     .donation-list {
       display: none;
       position: absolute;
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #2c3e50; /* dark professional */
+      background-color: #2c3e50;
       border-radius: 12px;
       flex-direction: column;
       min-width: 220px;
@@ -105,7 +105,7 @@
     }
     .donation-list.show {
       display: flex;
-      max-height: 500px; /* smooth slide down */
+      max-height: 500px;
     }
     .donation-list button, .donation-list a button {
       display: flex;
@@ -164,7 +164,8 @@
     <div class="donate-wrapper">
       <button class="donate-btn" onclick="toggleDonationList()">Donation</button>
       <div class="donation-list" id="donationList">
-        <a href="cashtab://pay?recipient=ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh">
+        <!-- XEC Donation opens Cashtab web link like RAFFLE -->
+        <a href="https://cashtab.com/#/pay-qr?address=ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
           <button>
             <img src="https://cryptologos.cc/logos/ecash-xec-logo.png?v=024" alt="XEC"> XEC
           </button>
