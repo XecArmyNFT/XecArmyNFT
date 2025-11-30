@@ -40,7 +40,7 @@
 
     .launching {
       position: absolute;
-      bottom: 20px;
+      bottom: 70px; /* leave space for footer */
       left: 50%;
       transform: translateX(-50%);
       max-width: 600px;
@@ -51,14 +51,41 @@
       z-index: 10;
     }
 
+    /* Footer section */
+    .footer {
+      position: absolute;
+      bottom: 20px; /* below launching image */
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #ffffff;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    .footer a img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      filter: brightness(0) invert(1); /* white icons for dark background */
+    }
+
     @media (max-width: 768px) {
-      .logo { width: 95%; } /* Shrink for tablets */
-      .launching { width: 70%; max-width: 400px; bottom: 15px; }
+      .logo { width: 95%; }
+      .launching { width: 70%; max-width: 400px; bottom: 80px; }
+      .footer { font-size: 0.8rem; gap: 10px; }
+      .footer a img { width: 20px; height: 20px; }
     }
 
     @media (max-width: 480px) {
-      .logo { width: 100%; } /* Shrink for mobile */
-      .launching { width: 80%; max-width: 300px; bottom: 10px; }
+      .logo { width: 100%; }
+      .launching { width: 80%; max-width: 300px; bottom: 90px; }
+      .footer { font-size: 0.7rem; gap: 8px; flex-direction: column; }
+      .footer a img { width: 18px; height: 18px; }
     }
   </style>
 </head>
@@ -68,5 +95,19 @@
   </div>
 
   <img src="launching.png" alt="We are launching soon" class="launching">
+
+  <!-- Footer with copyright and social icons -->
+  <div class="footer">
+    <span>©️2025 Copyright XEC ARMY NFTs - All Rights Reserved</span>
+    <a href="https://x.com/psyman169?t=QLiuszpP-0_4rpCqLwt3mg&s=09" target="_blank">
+      <img src="twitter-icon.png" alt="Twitter">
+    </a>
+    <a href="https://t.me/Nabzzzz00" target="_blank">
+      <img src="telegram-icon.png" alt="Telegram">
+    </a>
+    <a href="mailto:psyman169@gmail.com" target="_blank">
+      <img src="gmail-icon.png" alt="Gmail">
+    </a>
+  </div>
 </body>
 </html>
