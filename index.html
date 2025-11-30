@@ -167,7 +167,11 @@
       transform: scale(1.2);
       fill: #00acee;
     }
-    .footer .copyright { font-size: 0.9rem; }
+    .footer .copyright { 
+      font-size: 0.9rem; 
+      white-space: nowrap; /* force single line */
+      overflow-x: auto;
+    }
 
     @media (max-width: 768px) {
       .logo { width: 95%; }
