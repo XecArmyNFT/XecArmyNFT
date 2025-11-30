@@ -30,39 +30,47 @@
       height: auto;
     }
     .launching {
-      display: block;
+      position: absolute;
+      top: 50%;               
+      left: 50%;              
+      transform: translate(-50%, -50%);
       max-width: 600px;
       width: 60%;
       height: auto;
-      margin: 0 auto;
       background: transparent;
-      position: relative;
-      top: 50px;
+      display: block;
       z-index: 10;
     }
 
     /* Cashtab install text under launching image */
     .cashtab-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(50% + 180px); /* moved just under launching image */
       text-align: center;
       color: white;
       font-size: 16px;
-      margin: 20px auto 0 auto;
-      white-space: nowrap; /* prevents wrapping */
+      white-space: nowrap;
+      z-index: 15;
     }
     .cashtab-text a {
-      color: #1abc9c; /* turquoise */
+      color: #1abc9c;
       font-weight: bold;
       text-decoration: none;
     }
 
-    /* Buttons container under text */
+    /* Buttons container */
     .buttons-container {
+      position: absolute;
+      top: calc(50% + 220px); /* under the text */
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       gap: 20px;
-      justify-content: center;
-      margin: 40px auto 0 auto;
-      flex-wrap: wrap;
       z-index: 15;
+      align-items: flex-start;
+      flex-wrap: nowrap;
     }
     .donate-wrapper {
       position: relative;
@@ -135,10 +143,13 @@
 
     /* Footer */
     .footer {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       text-align: center;
       color: #ffffff;
       z-index: 10;
-      margin-top: 60px;
     }
     .footer .social-icons {
       display: flex;
@@ -162,15 +173,11 @@
 
     @media (max-width: 768px) {
       .logo { width: 95%; }
-      .launching { width: 70%; max-width: 400px; top: 30px; }
-      .footer .copyright { font-size: 0.8rem; }
-      .footer .social-icons a svg { width: 28px; height: 28px; }
+      .launching { width: 70%; max-width: 400px; }
     }
     @media (max-width: 480px) {
       .logo { width: 100%; }
-      .launching { width: 80%; max-width: 300px; top: 20px; }
-      .footer .copyright { font-size: 0.7rem; }
-      .footer .social-icons a svg { width: 24px; height: 24px; }
+      .launching { width: 80%; max-width: 300px; }
     }
   </style>
 </head>
@@ -182,12 +189,12 @@
   <!-- Launching image -->
   <img src="launching.png" alt="We are launching soon" class="launching">
 
-  <!-- Cashtab install text under launching image -->
+  <!-- Cashtab install text moved under launching image -->
   <div class="cashtab-text">
     Dont Have Cashtab Wallet? <a href="https://www.cashtab.com" target="_blank">CLICK HERE</a>.
   </div>
 
-  <!-- Buttons container under text -->
+  <!-- Buttons container -->
   <div class="buttons-container">
     <div class="donate-wrapper">
       <button class="donate-btn" onclick="toggleDonationList()">Donation</button>
