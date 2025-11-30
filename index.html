@@ -4,12 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XEC ARMY NFT</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset default margin/padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Full-screen background */
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      background: url('background.png') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* moves logo slightly up */
+      align-items: center;
+      padding-top: 5vh; /* responsive top padding */
+    }
+
+    .logo {
+      max-width: 980px; /* ~26cm */
+      width: 80%; /* scales down for smaller screens */
+      height: auto;
+    }
+
+    /* Mobile / smaller screens adjustments */
+    @media (max-width: 768px) {
+      .logo {
+        width: 90%; /* fill more of small screen width */
+        max-width: 600px; /* limit max size on tablet */
+      }
+      .hero {
+        padding-top: 10vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 95%; /* almost full width for tiny screens */
+        max-width: 400px;
+      }
+      .hero {
+        padding-top: 12vh;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="hero">
     <img src="logo1.png" alt="XEC ARMY NFT Logo" class="logo">
-    <h1 class="welcome-text">Welcome to XEC ARMY NFTs</h1>
   </div>
 </body>
 </html>
