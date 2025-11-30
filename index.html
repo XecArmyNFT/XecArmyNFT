@@ -42,10 +42,10 @@
       z-index: 10;
     }
 
-    /* Countdown Timer with glow, custom font and color-coded numbers */
+    /* Countdown Timer with glow, single line, custom font and color-coded numbers */
     #countdown {
       position: absolute;
-      top: calc(50% + 120px);
+      top: calc(50% + 80px); /* moved a little bit up */
       left: 50%;
       transform: translateX(-50%);
       background-color: rgba(0, 0, 0, 0.6);
@@ -57,6 +57,7 @@
       border-radius: 12px;
       z-index: 15;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      white-space: nowrap; /* Force single line */
     }
     #countdown span.days {
       color: #00ffff; /* Aqua */
