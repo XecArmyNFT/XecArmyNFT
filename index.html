@@ -52,6 +52,7 @@
       gap: 20px;
       z-index: 15;
       align-items: flex-start;
+      flex-wrap: nowrap; /* prevent wrapping on mobile */
     }
     .donate-wrapper {
       position: relative;
@@ -128,7 +129,6 @@
     @media (max-width: 768px) {
       .logo { width: 95%; }
       .launching { width: 70%; max-width: 400px; }
-      .buttons-container { flex-direction: column; }
       .footer .copyright { font-size: 0.8rem; }
       .footer .social-icons a svg { width: 28px; height: 28px; }
     }
@@ -153,7 +153,7 @@
       <button class="donate-btn" onclick="toggleDonationList()">Donation</button>
       <div class="donation-list" id="donationList">
         <button onclick="donateXEC()">
-          <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/ecash.png" alt="XEC"> XEC
+          <img src="https://cryptologos.cc/logos/ecash-xec-logo.png?v=024" alt="XEC"> XEC
         </button>
         <button onclick="donateBCH()">
           <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/bch.png" alt="BCH"> BCH
