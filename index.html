@@ -42,32 +42,41 @@
       z-index: 10;
     }
 
-    /* Countdown Timer with glow and responsive */
+    /* Countdown Timer with glow, custom font and color-coded numbers */
     #countdown {
       position: absolute;
-      top: calc(50% + 120px); /* under launching image */
+      top: calc(50% + 120px);
       left: 50%;
       transform: translateX(-50%);
       background-color: rgba(0, 0, 0, 0.6);
-      color: #ffffff;
-      font-size: 24px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 36px;
       font-weight: bold;
       text-align: center;
-      padding: 15px 30px;
+      padding: 20px 40px;
       border-radius: 12px;
       z-index: 15;
-      font-family: Arial, sans-serif;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.5); /* soft glow */
+    }
+    #countdown span.days {
+      color: #00ffff; /* Aqua */
+      text-shadow: 0 0 15px #00ffff;
+    }
+    #countdown span.hours {
+      color: #8e44ad; /* Purple */
+      text-shadow: 0 0 15px #8e44ad;
+    }
+    #countdown span.minutes {
+      color: #00ffff; /* Aqua */
+      text-shadow: 0 0 15px #00ffff;
+    }
+    #countdown span.seconds {
+      color: #8e44ad; /* Purple */
+      text-shadow: 0 0 15px #8e44ad;
     }
 
-    /* Responsive text size for mobile */
-    @media (max-width: 768px) {
-      #countdown { font-size: 20px; padding: 12px 25px; }
-    }
-    @media (max-width: 480px) {
-      #countdown { font-size: 16px; padding: 10px 20px; }
-    }
+    @media (max-width: 768px) { #countdown { font-size: 28px; padding: 15px 30px; } }
+    @media (max-width: 480px) { #countdown { font-size: 22px; padding: 12px 25px; } }
 
     /* Cashtab install text under launching image */
     .cashtab-text {
@@ -92,7 +101,7 @@
     /* Buttons container */
     .buttons-container {
       position: absolute;
-      top: calc(50% + 220px); /* under the text */
+      top: calc(50% + 220px);
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -196,7 +205,7 @@
     }
     .footer .copyright { 
       font-size: 0.9rem; 
-      white-space: nowrap; /* force single line */
+      white-space: nowrap;
       overflow-x: auto;
     }
 
@@ -291,7 +300,10 @@
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       document.getElementById("countdown").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        `<span class="days">${days}d</span> ` +
+        `<span class="hours">${hours}h</span> ` +
+        `<span class="minutes">${minutes}m</span> ` +
+        `<span class="seconds">${seconds}s</span>`;
 
       if (distance < 0) {
         clearInterval(countdownFunction);
