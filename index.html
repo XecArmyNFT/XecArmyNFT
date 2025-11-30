@@ -42,15 +42,16 @@
       z-index: 10;
     }
 
-    /* Buttons under launching image */
+    /* Buttons container */
     .buttons-container {
       position: absolute;
       top: calc(50% + 200px);
       left: 50%;
       transform: translateX(-50%);
-      display: flex;
+      display: flex;      /* horizontal layout */
       gap: 20px;
       z-index: 15;
+      align-items: flex-start;
     }
     .buttons-container button {
       padding: 15px 30px;
@@ -67,16 +68,15 @@
     .raffle-btn { background-color: #4ecdc4; color: white; }
     .raffle-btn:hover { background-color: #3bb8a2; }
 
-    /* Donation Dropdown */
+    /* Donation dropdown */
     .donation-list {
       display: none;
       position: absolute;
-      top: 100%; /* below the button */
+      top: 100%;             /* below donation button */
       left: 50%;
       transform: translateX(-50%);
       background-color: #222;
       border-radius: 8px;
-      overflow: hidden;
       flex-direction: column;
       min-width: 200px;
       z-index: 20;
@@ -133,14 +133,20 @@
 
   <img src="launching.png" alt="We are launching soon" class="launching">
 
-  <!-- Buttons under launching image -->
+  <!-- Buttons container -->
   <div class="buttons-container">
-    <div style="position: relative;">
+    <div class="donate-wrapper" style="position: relative;">
       <button class="donate-btn" onclick="toggleDonationList()">Donation</button>
       <div class="donation-list" id="donationList">
-        <button onclick="donateXEC()"><img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/ecash.png" alt="XEC"> XEC</button>
-        <button onclick="donateBCH()"><img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/bch.png" alt="BCH"> BCH</button>
-        <button onclick="donateETH()"><img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/eth.png" alt="ETH"> ETH</button>
+        <button onclick="donateXEC()">
+          <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/ecash.png" alt="XEC"> XEC
+        </button>
+        <button onclick="donateBCH()">
+          <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/bch.png" alt="BCH"> BCH
+        </button>
+        <button onclick="donateETH()">
+          <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/eth.png" alt="ETH"> ETH
+        </button>
       </div>
     </div>
     <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" target="_blank">
