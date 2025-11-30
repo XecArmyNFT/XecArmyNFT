@@ -11,7 +11,7 @@
       width: 100%;
       font-family: 'Arial', sans-serif;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
       background: url('background.png') no-repeat center center/cover;
     }
     .top-container {
@@ -30,29 +30,39 @@
       height: auto;
     }
     .launching {
-      position: absolute;
-      top: 50%;               
-      left: 50%;              
-      transform: translate(-50%, -50%);
+      display: block;
       max-width: 600px;
       width: 60%;
       height: auto;
+      margin: 0 auto;
       background: transparent;
-      display: block;
+      position: relative;
+      top: 50px;
       z-index: 10;
     }
 
-    /* Buttons container */
+    /* Cashtab install text under launching image */
+    .cashtab-text {
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      margin: 20px auto 0 auto;
+      white-space: nowrap; /* prevents wrapping */
+    }
+    .cashtab-text a {
+      color: #1abc9c; /* turquoise */
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Buttons container under text */
     .buttons-container {
-      position: absolute;
-      top: calc(50% + 180px); /* slightly moved up */
-      left: 50%;
-      transform: translateX(-50%);
       display: flex;
       gap: 20px;
+      justify-content: center;
+      margin: 40px auto 0 auto;
+      flex-wrap: wrap;
       z-index: 15;
-      align-items: flex-start;
-      flex-wrap: nowrap;
     }
     .donate-wrapper {
       position: relative;
@@ -123,33 +133,12 @@
     .donation-list button:hover, .donation-list a button:hover { background-color: #3d566e; }
     .donation-list img { width: 24px; height: 24px; }
 
-    /* Cashtab install text */
-    .cashtab-text {
-      position: absolute;
-      top: calc(50% + 270px);
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      z-index: 15;
-      color: white;
-      font-size: 16px;
-      white-space: nowrap; /* prevents wrapping */
-    }
-    .cashtab-text a {
-      color: #1abc9c; /* turquoise */
-      font-weight: bold;
-      text-decoration: none;
-    }
-
     /* Footer */
     .footer {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
       text-align: center;
       color: #ffffff;
       z-index: 10;
+      margin-top: 60px;
     }
     .footer .social-icons {
       display: flex;
@@ -173,13 +162,13 @@
 
     @media (max-width: 768px) {
       .logo { width: 95%; }
-      .launching { width: 70%; max-width: 400px; }
+      .launching { width: 70%; max-width: 400px; top: 30px; }
       .footer .copyright { font-size: 0.8rem; }
       .footer .social-icons a svg { width: 28px; height: 28px; }
     }
     @media (max-width: 480px) {
       .logo { width: 100%; }
-      .launching { width: 80%; max-width: 300px; }
+      .launching { width: 80%; max-width: 300px; top: 20px; }
       .footer .copyright { font-size: 0.7rem; }
       .footer .social-icons a svg { width: 24px; height: 24px; }
     }
@@ -190,9 +179,15 @@
     <img src="logo1.png" alt="XEC ARMY NFT Logo" class="logo">
   </div>
 
+  <!-- Launching image -->
   <img src="launching.png" alt="We are launching soon" class="launching">
 
-  <!-- Buttons container -->
+  <!-- Cashtab install text under launching image -->
+  <div class="cashtab-text">
+    Dont Have Cashtab Wallet? <a href="https://www.cashtab.com" target="_blank">CLICK HERE</a>.
+  </div>
+
+  <!-- Buttons container under text -->
   <div class="buttons-container">
     <div class="donate-wrapper">
       <button class="donate-btn" onclick="toggleDonationList()">Donation</button>
@@ -213,11 +208,6 @@
     <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" target="_blank">
       <button class="raffle-btn">RAFFLE</button>
     </a>
-  </div>
-
-  <!-- Cashtab install text -->
-  <div class="cashtab-text">
-    Dont Have Cashtab Wallet? <a href="https://www.cashtab.com" target="_blank">CLICK HERE</a>.
   </div>
 
   <!-- Footer -->
