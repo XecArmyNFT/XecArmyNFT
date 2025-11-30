@@ -1,136 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XEC ARMY Full-Screen Mosaic</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: black;
-    width: 100vw;
-    height: 100vh;
-    font-family: 'Orbitron', sans-serif;
-  }
-
-  #grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    grid-auto-rows: 120px;
-    gap: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-  }
-
-  .nft {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.35;
-    filter: brightness(1.3) drop-shadow(0 0 10px cyan) blur(1px);
-    mix-blend-mode: screen;
-    transition: transform 0.3s, opacity 0.3s;
-  }
-
-  .nft:hover,
-  .nft:active {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-
-  #logo {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 870px; 
-    max-height: 870px;
-    width: auto;
-    height: auto;
-    z-index: 10;
-    filter: drop-shadow(0 0 35px cyan);
-  }
-
-  #welcome {
-    position: absolute;
-    top: 68%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: cyan;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-align: center;
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
-    z-index: 10;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  @media (max-width: 600px) {
-    #grid {
-      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-      grid-auto-rows: 80px;
-    }
-
-    #logo {
-      max-width: 450px;
-      max-height: 450px;
-    }
-
-    #welcome {
-      top: 72%;
-      letter-spacing: 0.5px;
-    }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XEC ARMY NFT</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div id="grid"></div>
-<img src="logo1.png" id="logo" alt="XEC ARMY Logo">
-<div id="welcome">Welcome to the Future of eCash – Where NFTs Meet Power</div>
-
-<script>
-const totalImages = 26;
-const grid = document.getElementById('grid');
-const logo = document.getElementById('logo');
-const welcome = document.getElementById('welcome');
-
-// Fill the mosaic grid
-const cellWidth = window.innerWidth > 600 ? 120 : 80;
-const cellHeight = window.innerWidth > 600 ? 120 : 80;
-const cols = Math.ceil(window.innerWidth / cellWidth);
-const rows = Math.ceil(window.innerHeight / cellHeight);
-const totalCells = cols * rows;
-
-for (let i = 0; i < totalCells; i++) {
-  const img = document.createElement('img');
-  img.src = `bg${(i % totalImages) + 1}.png`;
-  img.classList.add('nft');
-  grid.appendChild(img);
-}
-
-// Function to resize text to match logo width
-function adjustTextWidth() {
-  const logoWidth = logo.getBoundingClientRect().width;
-  welcome.style.maxWidth = `${logoWidth * 1.05}px`; // slightly wider than logo
-  // adjust font size proportionally
-  const baseFont = window.innerWidth > 600 ? 40 : 20; // starting font size
-  welcome.style.fontSize = `${Math.min(baseFont, logoWidth / 20)}px`;
-}
-
-// Initial adjustment
-adjustTextWidth();
-
-// Adjust on window resize
-window.addEventListener('resize', adjustTextWidth);
-</script>
-
+  <div class="hero">
+    <img src="logo1.png" alt="XEC ARMY NFT Logo" class="logo">
+    <h1 class="welcome-text">Welcome to XEC ARMY NFTs</h1>
+  </div>
 </body>
 </html>
