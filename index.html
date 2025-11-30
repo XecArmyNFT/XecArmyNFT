@@ -20,10 +20,9 @@
       background: url('background.png') no-repeat center center/cover;
     }
 
-    /* Container for top elements */
     .top-container {
       position: absolute;
-      top: 20px;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -32,39 +31,11 @@
       z-index: 10;
     }
 
+    /* Bigger logo (30% more than before) */
     .logo {
-      max-width: 980px; /* ~26cm */
-      width: 80%;
+      max-width: 1300px;   /* Larger size (~35cm) */
+      width: 90%;
       height: auto;
-    }
-
-    .welcome-text {
-      margin-top: 10px; /* space under the logo */
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-align: center;
-      /* Bold gradient colors */
-      background: linear-gradient(90deg, #FF00FF, #00FFFF, #FFFF00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 5px #FF00FF, 0 0 10px #FF00FF, 0 0 20px #FF00FF, 
-                   0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 50px #FFFF00;
-      animation: neonGlow 1.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes neonGlow {
-      0% {
-        text-shadow: 0 0 3px #FF00FF, 0 0 5px #FF00FF, 0 0 10px #FF00FF,
-                     0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 25px #FFFF00;
-      }
-      50% {
-        text-shadow: 0 0 5px #FF00FF, 0 0 10px #FF00FF, 0 0 15px #FF00FF,
-                     0 0 20px #00FFFF, 0 0 25px #00FFFF, 0 0 30px #FFFF00;
-      }
-      100% {
-        text-shadow: 0 0 3px #FF00FF, 0 0 5px #FF00FF, 0 0 10px #FF00FF,
-                     0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 25px #FFFF00;
-      }
     }
 
     .launching {
@@ -80,16 +51,13 @@
       z-index: 10;
     }
 
-    /* Mobile / smaller screens adjustments */
     @media (max-width: 768px) {
-      .logo { width: 90%; max-width: 600px; }
-      .welcome-text { font-size: 1.2rem; }
+      .logo { width: 95%; max-width: 800px; }
       .launching { width: 70%; max-width: 400px; bottom: 15px; }
     }
 
     @media (max-width: 480px) {
-      .logo { width: 95%; max-width: 400px; }
-      .welcome-text { font-size: 1rem; }
+      .logo { width: 100%; max-width: 550px; }
       .launching { width: 80%; max-width: 300px; bottom: 10px; }
     }
   </style>
@@ -97,7 +65,6 @@
 <body>
   <div class="top-container">
     <img src="logo1.png" alt="XEC ARMY NFT Logo" class="logo">
-    <div class="welcome-text">Welcome To XEC ARMY NFTs Collections</div>
   </div>
 
   <img src="launching.png" alt="We are launching soon" class="launching">
