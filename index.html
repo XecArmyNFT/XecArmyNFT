@@ -17,34 +17,34 @@
       font-family: 'Arial', sans-serif;
       position: relative;
       overflow: hidden;
-    }
-
-    body {
       background: url('background.png') no-repeat center center/cover;
     }
 
-    .logo {
+    /* Container for top elements */
+    .top-container {
       position: absolute;
-      top: 20px; /* distance from top */
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      max-width: 980px; /* ~26cm */
-      width: 80%;
-      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       z-index: 10;
     }
 
+    .logo {
+      max-width: 980px; /* ~26cm */
+      width: 80%;
+      height: auto;
+    }
+
     .welcome-text {
-      position: absolute;
-      top: calc(20px + 980px * 0.8 / 2 + 10px); /* logo top + half logo height + small offset */
-      left: 50%;
-      transform: translateX(-50%);
+      margin-top: 10px; /* space under the logo */
       color: #ffffff;
       font-size: 1.5rem;
       font-weight: bold;
       text-align: center;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-      z-index: 10;
     }
 
     .launching {
@@ -62,21 +62,24 @@
 
     /* Mobile / smaller screens adjustments */
     @media (max-width: 768px) {
-      .logo { width: 90%; max-width: 600px; top: 15px; }
-      .welcome-text { font-size: 1.2rem; top: calc(15px + 600px * 0.9 / 2 + 8px); }
+      .logo { width: 90%; max-width: 600px; }
+      .welcome-text { font-size: 1.2rem; }
       .launching { width: 70%; max-width: 400px; bottom: 15px; }
     }
 
     @media (max-width: 480px) {
-      .logo { width: 95%; max-width: 400px; top: 10px; }
-      .welcome-text { font-size: 1rem; top: calc(10px + 400px * 0.95 / 2 + 6px); }
+      .logo { width: 95%; max-width: 400px; }
+      .welcome-text { font-size: 1rem; }
       .launching { width: 80%; max-width: 300px; bottom: 10px; }
     }
   </style>
 </head>
 <body>
-  <img src="logo1.png" alt="XEC ARMY NFT Logo" class="logo">
-  <div class="welcome-text">Welcome To XEC ARMY NFTs Collections</div>
+  <div class="top-container">
+    <img src="logo1.png" alt="XEC ARMY NFT Logo" class="logo">
+    <div class="welcome-text">Welcome To XEC ARMY NFTs Collections</div>
+  </div>
+
   <img src="launching.png" alt="We are launching soon" class="launching">
 </body>
 </html>
