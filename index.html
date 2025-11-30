@@ -42,13 +42,13 @@
       z-index: 10;
     }
 
-    /* Countdown Timer */
+    /* Countdown Timer with glow and responsive */
     #countdown {
       position: absolute;
       top: calc(50% + 120px); /* under launching image */
       left: 50%;
       transform: translateX(-50%);
-      background-color: rgba(0, 0, 0, 0.6); /* dark transparent box */
+      background-color: rgba(0, 0, 0, 0.6);
       color: #ffffff;
       font-size: 24px;
       font-weight: bold;
@@ -58,6 +58,15 @@
       z-index: 15;
       font-family: Arial, sans-serif;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.5); /* soft glow */
+    }
+
+    /* Responsive text size for mobile */
+    @media (max-width: 768px) {
+      #countdown { font-size: 20px; padding: 12px 25px; }
+    }
+    @media (max-width: 480px) {
+      #countdown { font-size: 16px; padding: 10px 20px; }
     }
 
     /* Cashtab install text under launching image */
@@ -65,7 +74,7 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      top: calc(50% + 180px); /* just under launching image */
+      top: calc(50% + 180px);
       text-align: center;
       color: white;
       font-size: 16px;
@@ -100,7 +109,7 @@
     /* Professional buttons */
     .donate-btn {
       background-color: #00ffff; /* Aqua */
-      color: #000; /* black text for contrast */
+      color: #000;
       font-weight: bold;
       border-radius: 10px;
       padding: 15px 40px;
@@ -109,7 +118,7 @@
       border: none;
       transition: all 0.3s;
     }
-    .donate-btn:hover { background-color: #00cccc; } /* darker Aqua on hover */
+    .donate-btn:hover { background-color: #00cccc; }
 
     .raffle-btn {
       background-color: #8e44ad;
@@ -133,7 +142,7 @@
       transform: translateX(-50%);
       background-color: #2c3e50;
       border-radius: 12px;
-      flex-direction: row; /* horizontal */
+      flex-direction: row;
       gap: 10px;
       min-width: auto;
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
@@ -143,7 +152,7 @@
     }
     .donation-list.show { display: flex; }
     .donation-list button, .donation-list a button {
-      flex: 1; /* equal width */
+      flex: 1;
       text-align: center;
       padding: 12px 20px;
       border-radius: 8px;
@@ -194,7 +203,7 @@
     @media (max-width: 768px) {
       .logo { width: 95%; }
       .launching { width: 70%; max-width: 400px; }
-      .donation-list { flex-direction: column; top: 100%; transform: translateX(-50%); } /* stack on smaller screens */
+      .donation-list { flex-direction: column; top: 100%; transform: translateX(-50%); }
     }
     @media (max-width: 480px) {
       .logo { width: 100%; }
