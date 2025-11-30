@@ -59,48 +59,67 @@
       display: inline-block; /* keeps buttons side by side */
     }
 
-    /* Matching dark theme buttons */
-    .donate-btn, .raffle-btn {
-      background-color: #333; /* dark gray */
+    /* Matching professional buttons */
+    .donate-btn {
+      background-color: #1abc9c; /* turquoise */
       color: #fff;
       font-weight: bold;
       border-radius: 10px;
-      padding: 15px 40px; /* same size for both */
+      padding: 15px 40px;
       font-size: 18px;
       cursor: pointer;
       border: none;
-      transition: all 0.2s;
+      transition: all 0.3s;
     }
-    .donate-btn:hover, .raffle-btn:hover {
-      background-color: #555; /* hover effect */
-    }
+    .donate-btn:hover { background-color: #16a085; }
 
-    /* Donation dropdown */
+    .raffle-btn {
+      background-color: #8e44ad; /* purple */
+      color: #fff;
+      font-weight: bold;
+      border-radius: 10px;
+      padding: 15px 40px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s;
+    }
+    .raffle-btn:hover { background-color: #732d91; }
+
+    /* Donation dropdown - professional */
     .donation-list {
       display: none;
       position: absolute;
-      top: 100%; /* below donation button */
+      top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #222; /* dark theme */
-      border-radius: 10px;
+      background-color: #2c3e50; /* dark professional */
+      border-radius: 12px;
       flex-direction: column;
-      min-width: 200px;
+      min-width: 220px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
       z-index: 20;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+      max-height: 0;
+    }
+    .donation-list.show {
+      display: flex;
+      max-height: 500px; /* smooth slide down */
     }
     .donation-list button {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px;
-      background-color: #333;
+      padding: 12px 20px;
+      background-color: #34495e;
       color: #fff;
       border: none;
       cursor: pointer;
       width: 100%;
       transition: all 0.2s;
     }
-    .donation-list button:hover { background-color: #555; }
+    .donation-list button:hover { background-color: #3d566e; }
     .donation-list img { width: 24px; height: 24px; }
 
     /* Footer */
@@ -187,8 +206,7 @@
   <script>
     function toggleDonationList() {
       const list = document.getElementById('donationList');
-      list.style.display = (list.style.display === 'flex') ? 'none' : 'flex';
-      list.style.flexDirection = 'column';
+      list.classList.toggle('show');
     }
 
     function donateXEC() {
