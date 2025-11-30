@@ -43,16 +43,33 @@
       font-size: 1.5rem;
       font-weight: bold;
       text-align: center;
-      /* Bold colorful gradient */
+      /* Bold gradient colors */
       background: linear-gradient(90deg, #FF00FF, #00FFFF, #FFFF00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      text-shadow: 0 0 5px #FF00FF, 0 0 10px #FF00FF, 0 0 20px #FF00FF, 
+                   0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 50px #FFFF00;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes neonGlow {
+      0% {
+        text-shadow: 0 0 3px #FF00FF, 0 0 5px #FF00FF, 0 0 10px #FF00FF,
+                     0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 25px #FFFF00;
+      }
+      50% {
+        text-shadow: 0 0 5px #FF00FF, 0 0 10px #FF00FF, 0 0 15px #FF00FF,
+                     0 0 20px #00FFFF, 0 0 25px #00FFFF, 0 0 30px #FFFF00;
+      }
+      100% {
+        text-shadow: 0 0 3px #FF00FF, 0 0 5px #FF00FF, 0 0 10px #FF00FF,
+                     0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 25px #FFFF00;
+      }
     }
 
     .launching {
       position: absolute;
-      bottom: 20px; /* distance from bottom */
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       max-width: 600px;
