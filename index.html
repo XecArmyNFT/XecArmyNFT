@@ -58,30 +58,22 @@
       position: relative;
       display: inline-block; /* keeps buttons side by side */
     }
-    .donate-btn {
-      background-color: #ff6b6b; /* Donation button color */
+
+    /* Matching dark theme buttons */
+    .donate-btn, .raffle-btn {
+      background-color: #333; /* dark gray */
       color: #fff;
       font-weight: bold;
       border-radius: 10px;
-      padding: 15px 30px;
+      padding: 15px 40px; /* same size for both */
       font-size: 18px;
       cursor: pointer;
       border: none;
       transition: all 0.2s;
     }
-    .donate-btn:hover { background-color: #ff4b4b; }
-    .raffle-btn {
-      background-color: #4ecdc4; /* Raffle button color */
-      color: #fff;
-      font-weight: bold;
-      border-radius: 10px;
-      padding: 15px 30px;
-      font-size: 18px;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
+    .donate-btn:hover, .raffle-btn:hover {
+      background-color: #555; /* hover effect */
     }
-    .raffle-btn:hover { background-color: #3bb8a2; }
 
     /* Donation dropdown */
     .donation-list {
