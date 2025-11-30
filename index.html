@@ -42,6 +42,20 @@
       z-index: 10;
     }
 
+    /* Countdown Timer */
+    #countdown {
+      position: absolute;
+      top: calc(50% + 120px); /* under launching image */
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      z-index: 15;
+      font-family: Arial, sans-serif;
+    }
+
     /* Cashtab install text under launching image */
     .cashtab-text {
       position: absolute;
@@ -192,6 +206,9 @@
   <!-- Launching image -->
   <img src="launching.png" alt="We are launching soon" class="launching">
 
+  <!-- Countdown Timer -->
+  <div id="countdown"></div>
+
   <!-- Cashtab install text -->
   <div class="cashtab-text">
     Dont Have Cashtab Wallet? <a href="https://www.cashtab.com" target="_blank">CLICK HERE</a>.
@@ -249,6 +266,26 @@
   </div>
 
   <script>
+    // Countdown Timer
+    const countdownDate = new Date("January 1, 2026 00:00:00").getTime();
+    const countdownFunction = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "🎉 We Have Launched! 🎉";
+      }
+    }, 1000);
+
     function toggleDonationList() {
       const list = document.getElementById('donationList');
       list.classList.toggle('show');
