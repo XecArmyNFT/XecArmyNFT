@@ -47,7 +47,7 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      top: calc(50% + 180px); /* moved just under launching image */
+      top: calc(50% + 180px); /* just under launching image */
       text-align: center;
       color: white;
       font-size: 16px;
@@ -189,7 +189,7 @@
   <!-- Launching image -->
   <img src="launching.png" alt="We are launching soon" class="launching">
 
-  <!-- Cashtab install text moved under launching image -->
+  <!-- Cashtab install text under launching image -->
   <div class="cashtab-text">
     Dont Have Cashtab Wallet? <a href="https://www.cashtab.com" target="_blank">CLICK HERE</a>.
   </div>
@@ -199,19 +199,23 @@
     <div class="donate-wrapper">
       <button class="donate-btn" onclick="toggleDonationList()">Donation</button>
       <div class="donation-list" id="donationList">
+        <!-- XEC donation via Cashtab -->
         <a href="https://cashtab.com/#/pay-qr?address=ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
           <button>
             <img src="https://cryptologos.cc/logos/ecash-xec-logo.png?v=024" alt="XEC"> XEC
           </button>
         </a>
+        <!-- BCH donation via WalletConnect -->
         <button onclick="donateBCH()">
           <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/bch.png" alt="BCH"> BCH
         </button>
+        <!-- ETH donation via WalletConnect -->
         <button onclick="donateETH()">
           <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/eth.png" alt="ETH"> ETH
         </button>
       </div>
     </div>
+    <!-- RAFFLE button -->
     <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" target="_blank">
       <button class="raffle-btn">RAFFLE</button>
     </a>
@@ -247,11 +251,14 @@
       list.classList.toggle('show');
     }
 
+    // BCH donation using WalletConnect
     function donateBCH() {
-      alert('WalletConnect integration needed for BCH donation: bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx');
+      window.open("wc:bch:bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx", "_blank");
     }
+
+    // ETH donation using WalletConnect
     function donateETH() {
-      alert('WalletConnect integration needed for ETH donation: 0x391ffef43b676d88e6da78bf337230f6b0d39184');
+      window.open("wc:ethereum:0x391ffef43b676d88e6da78bf337230f6b0d39184", "_blank");
     }
   </script>
 </body>
