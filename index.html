@@ -22,7 +22,7 @@
 
     .top-container {
       position: absolute;
-      top: 10px;
+      top: 5px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -31,10 +31,10 @@
       z-index: 10;
     }
 
-    /* EXACT 27cm width */
+    /* DOUBLE SIZE (very large) */
     .logo {
-      width: 27cm;     /* Requested size */
-      max-width: 100%; /* Prevent overflow on small screens */
+      width: 2000px;       /* Very large full-size version */
+      max-width: 100%;     /* Auto adjust on mobile */
       height: auto;
     }
 
@@ -52,12 +52,12 @@
     }
 
     @media (max-width: 768px) {
-      .logo { width: 90%; } /* Auto-resize on smaller screens */
+      .logo { width: 95%; } /* Auto-resize smaller on mobile */
       .launching { width: 70%; max-width: 400px; bottom: 15px; }
     }
 
     @media (max-width: 480px) {
-      .logo { width: 95%; }
+      .logo { width: 100%; }
       .launching { width: 80%; max-width: 300px; bottom: 10px; }
     }
   </style>
