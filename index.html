@@ -40,7 +40,7 @@
 
     .launching {
       position: absolute;
-      bottom: 70px; /* leave space for footer */
+      bottom: 100px; /* leave space for footer */
       left: 50%;
       transform: translateX(-50%);
       max-width: 600px;
@@ -51,41 +51,46 @@
       z-index: 10;
     }
 
-    /* Footer section: horizontal line */
+    /* Footer section: two rows */
     .footer {
       position: absolute;
-      bottom: 20px; /* below launching image */
+      bottom: 20px; /* bottom of the page */
       left: 50%;
       transform: translateX(-50%);
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 15px;
+      text-align: center;
       color: #ffffff;
-      font-size: 0.9rem;
       z-index: 10;
-      flex-wrap: wrap; /* wrap if screen too small */
     }
 
-    .footer a img {
-      width: 24px;
-      height: 24px;
-      vertical-align: middle;
+    .footer .copyright {
+      font-size: 0.9rem;
+      margin-bottom: 8px; /* space between text and icons */
+    }
+
+    .footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .footer .social-icons a img {
+      width: 32px;
+      height: 32px;
       filter: brightness(0) invert(1); /* white icons for dark background */
     }
 
     @media (max-width: 768px) {
       .logo { width: 95%; }
-      .launching { width: 70%; max-width: 400px; bottom: 80px; }
-      .footer { font-size: 0.8rem; gap: 10px; }
-      .footer a img { width: 20px; height: 20px; }
+      .launching { width: 70%; max-width: 400px; bottom: 120px; }
+      .footer .copyright { font-size: 0.8rem; }
+      .footer .social-icons a img { width: 28px; height: 28px; }
     }
 
     @media (max-width: 480px) {
       .logo { width: 100%; }
-      .launching { width: 80%; max-width: 300px; bottom: 90px; }
-      .footer { font-size: 0.7rem; gap: 8px; }
-      .footer a img { width: 18px; height: 18px; }
+      .launching { width: 80%; max-width: 300px; bottom: 130px; }
+      .footer .copyright { font-size: 0.7rem; }
+      .footer .social-icons a img { width: 24px; height: 24px; }
     }
   </style>
 </head>
@@ -96,18 +101,22 @@
 
   <img src="launching.png" alt="We are launching soon" class="launching">
 
-  <!-- Footer with copyright and social icons in a single horizontal line -->
+  <!-- Footer: copyright text and social icons -->
   <div class="footer">
-    <span>©️2025 Copyright XEC ARMY NFTs - All Rights Reserved</span>
-    <a href="https://x.com/psyman169?t=QLiuszpP-0_4rpCqLwt3mg&s=09" target="_blank">
-      <img src="twitter-icon.png" alt="Twitter">
-    </a>
-    <a href="https://t.me/Nabzzzz00" target="_blank">
-      <img src="telegram-icon.png" alt="Telegram">
-    </a>
-    <a href="mailto:psyman169@gmail.com" target="_blank">
-      <img src="gmail-icon.png" alt="Gmail">
-    </a>
+    <div class="copyright">
+      ©️2025 Copyright XEC ARMY NFTs - All Rights Reserved
+    </div>
+    <div class="social-icons">
+      <a href="https://x.com/psyman169?t=QLiuszpP-0_4rpCqLwt3mg&s=09" target="_blank">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABGklEQVRYR+3XsQ3CMAwF0DPG1Q9zAnSnWyAgiFdzxGwlgkRRK7AwSkdUG9eD0t/KPN/yrN3ZvMMdYBW+AY4AJ+I9AU9H5+oDEEAo4Aw4BbCPOzQMD8NQkNiAI5iCSD3r3PXYAj/OsM7mA3f1rBQvggmZ4a4EW4A1iC2DAJ6wF0p4TzUThU+K2Qv9lVzp3vItt3y6wGo1e/pwBtwBviQeQn4BdWvl8M2+aqYDo5K/iWLPjL8p8AfvF+TDFx3O9ZAAAAAElFTkSuQmCC" alt="Twitter">
+      </a>
+      <a href="https://t.me/Nabzzzz00" target="_blank">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABUklEQVRYR+3WwQnCMBAF0NE7PzO4QyJKz0GKSiLzC+CYGHMC2vA+AgkGZhggpS78Ob7+P1d+0L3k6m9tXecUABjZtJbqfYl9H/w7FAmUigZzXH7L6YF6Jo4E6yO+6TgBHAOXtM+APs5u3YAmANt4D0I4RwB9x2DPgCPh2r0NGBG0QMyDhxAmCkqC7lG6EbUQMgM3mFPoQdS1qv8WqgB+wF/gFZkfw+S8D8h/YP+2YC/7UAb+vWv4EC2AP/0AAwLqNFB9vOXK8AAAAASUVORK5CYII=" alt="Telegram">
+      </a>
+      <a href="mailto:psyman169@gmail.com" target="_blank">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABF0lEQVRYR+2XQQrCMAxF36zwO6e6U4FrKQQK3iEfFC7q6vhS3UYHDSB0c7nY0mZm4kDnLURXYANvg3+K7gMGBG4B6E9gI4GWBDeADvE8c8AI4C3gA3i9DAA3QHOo1z4ZjF4CRsY1X9T7WR/3AvOZmfkDGLvBPc9IH6xLQHpHZn3/E4AFzYB75u0oN+R7oQf2FX0J9/YHvA+4J5J/AGT+2afWnUG2AAAAAElFTkSuQmCC" alt="Gmail">
+      </a>
+    </div>
   </div>
 </body>
 </html>
