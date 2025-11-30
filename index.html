@@ -59,21 +59,27 @@
       justify-content: center;
       gap: 15px;
     }
-    .footer .social-icons a img {
+    .footer .social-icons a svg {
       width: 32px;
       height: 32px;
+      fill: white;
+      transition: transform 0.2s, fill 0.2s;
+    }
+    .footer .social-icons a:hover svg {
+      transform: scale(1.2);
+      fill: #00acee; /* optional hover color */
     }
     @media (max-width: 768px) {
       .logo { width: 95%; }
       .launching { width: 70%; max-width: 400px; bottom: 120px; }
       .footer .copyright { font-size: 0.8rem; }
-      .footer .social-icons a img { width: 28px; height: 28px; }
+      .footer .social-icons a svg { width: 28px; height: 28px; }
     }
     @media (max-width: 480px) {
       .logo { width: 100%; }
       .launching { width: 80%; max-width: 300px; bottom: 130px; }
       .footer .copyright { font-size: 0.7rem; }
-      .footer .social-icons a img { width: 24px; height: 24px; }
+      .footer .social-icons a svg { width: 24px; height: 24px; }
     }
   </style>
 </head>
@@ -92,15 +98,21 @@
     <div class="social-icons">
       <!-- Twitter -->
       <a href="https://x.com/psyman169?t=QLiuszpP-0_4rpCqLwt3mg&s=09" target="_blank">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABtUlEQVRYR+2Wv0rDQBTHP7YRDfJdD3cB1lq1rBip9A2WtgfYg3SAmR/kJ0g0qZzq8Z+eP7MY73pYVihfIbR/t2dZ3Zl4LAgDqDjCMpQjEAJeIYbV17pQK0i7gOGPEO4BHmDnMPADuHREBFfX9Z+p0OsJcBvA6x/3OFKQF5DQB1YAJYh0q9A8sL4i4Af6u/QZ9F9EtAG7fgNEAvXgU/Ok3P0XHo4GnxidA3wBOHzE7dO7A8A+gLkC8MWd3MgA3swI0gZbgZ1yz6r4CcAgs8uhGHnQwAjm5yRGgY+8KgLpR1gFjIl8E6tG7CgI7wg7QBfB+4DtF/fvVnBbCPAFYhgwI8IZxI0zOgr5tIkg9b9BJoN27vgZZFxAmcK+ZcCYGmNKUL8C4Dfh9Qt6gZzEIxM5SHNjTGBvSTOWgUd3+Tv0CLh2N3k7ARu9OKi4/+A+nlI3b4nSl33AAAAAElFTkSuQmCC" alt="Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M24 4.557a9.94 9.94 0 0 1-2.828.775A4.932 4.932 0 0 0 23.337 3.1a9.864 9.864 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.384 4.482A13.944 13.944 0 0 1 1.671 3.149a4.916 4.916 0 0 0 1.523 6.556A4.902 4.902 0 0 1 .964 9.1v.062a4.916 4.916 0 0 0 3.946 4.814 4.904 4.904 0 0 1-2.212.084 4.918 4.918 0 0 0 4.59 3.417A9.867 9.867 0 0 1 .48 19.54 13.924 13.924 0 0 0 7.548 21c9.056 0 14.01-7.503 14.01-14.009 0-.213-.004-.425-.014-.636A10.025 10.025 0 0 0 24 4.557z"/>
+        </svg>
       </a>
       <!-- Telegram -->
       <a href="https://t.me/Nabzzzz00" target="_blank">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABZUlEQVRYR+2WvQ6CMBBFz/xKkIClG0kIutAtqFXqA1UOgDZg7pE+Ax0iEIKM2c6d3w9Bf/7q7Lr2kMSxW4BE4AjwGNpDGBxH/k2ZAG0V2gD8Fp4C18aRzF4DcYH2M/8vIakTQB5GQHZ1eE0YbIW1OeQPsGLwAOgn8kgGsA+uUoNrgSgM6DmG37GUN8wALeV3d9TvYhsgqQV93MksA7gMgncQdcH3CeAdwB9hJwA/2YV/7GkTgHjT8aVYD8As8C0jltU0qKmnW0c3sH/Ah7lU9CuIGm+yjIFagRw9gEWwBhiWcEHzrkmA9cFYk8hHqJQHvoe0LZwlZ2e9COxjZQzABy9egR5hXyq2AGpBf0fTXz8jcm1+MBr53IY3N8U3MZkhnw3P/j2r6DJEnZy8KcL8AAAAASUVORK5CYII=" alt="Telegram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M9.036 16.89l-.35 3.976c.5 0 .71-.217.965-.477l2.31-2.197 4.8 3.495c.878.485 1.5.234 1.72-.817l3.12-14.743c.3-1.414-.51-1.963-1.422-1.615L2.57 9.66c-1.383.552-1.37 1.34-.236 1.707l4.716 1.467 10.921-6.875c.516-.313.988-.14.6.195L9.036 16.89z"/>
+        </svg>
       </a>
       <!-- Gmail -->
       <a href="mailto:psyman169@gmail.com" target="_blank">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABXklEQVRYR+2WwQ3DIAxF36w8R0jwVYkGqJ6AJkZlBv9YMu48x1gyJDE+ASqPzDk/2ZdwAQAO4I8xjIo0Qh3G3y0R8QCrQBb4D6bH4Ar4W1s5YAFcA1+AH+AoK9Uchb5F+4FoANeUvwQ+Gr0EYCXfUbgMoPcfdujBDdBhhDxIFwBu4wKcAdoZcF+aPoNME9hSeA/eBhAkc2lVwV3oHjAGoFk2pP8ZqXzJ6Xq0tUE8Ap7fS6WQqgBdwGmHroXxK7sIJMZsWe4B8g6YVco6ozY6sd6YxQDKZ0yWWiKnh8i6AQDoL9EyCkCrkGMUB6r8o1HJEwquh5OKM2gBOK1HH8fIAdwGfgO4EXwK+IXs+4Z0qOGwAAAABJRU5ErkJggg==" alt="Gmail">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4.99l-8 5.01-8-5V6l8 5 8-5v2.99z"/>
+        </svg>
       </a>
     </div>
   </div>
