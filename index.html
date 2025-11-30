@@ -31,10 +31,10 @@
       z-index: 10;
     }
 
-    /* Logo 25 cm wide */
+    /* MASSIVE logo for large screens */
     .logo {
-      width: 25cm;
-      max-width: 100%;  /* auto-resize for smaller screens */
+      width: 2000px;   /* Very large for desktops */
+      max-width: 100%; /* Auto-resize on smaller screens */
       height: auto;
     }
 
@@ -52,12 +52,12 @@
     }
 
     @media (max-width: 768px) {
-      .logo { width: 90%; }
+      .logo { width: 95%; } /* Shrink for tablets */
       .launching { width: 70%; max-width: 400px; bottom: 15px; }
     }
 
     @media (max-width: 480px) {
-      .logo { width: 95%; }
+      .logo { width: 100%; } /* Shrink for mobile */
       .launching { width: 80%; max-width: 300px; bottom: 10px; }
     }
   </style>
