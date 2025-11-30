@@ -104,7 +104,7 @@
     }
     .raffle-btn:hover { background-color: #732d91; }
 
-    /* Donation dropdown */
+    /* Donation dropdown horizontal */
     .donation-list {
       display: none;
       position: absolute;
@@ -113,32 +113,30 @@
       transform: translateX(-50%);
       background-color: #2c3e50;
       border-radius: 12px;
-      flex-direction: column;
-      min-width: 220px;
+      flex-direction: row; /* horizontal */
+      gap: 10px;
+      min-width: auto;
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
       z-index: 20;
       overflow: hidden;
-      transition: max-height 0.3s ease-in-out;
-      max-height: 0;
+      padding: 10px;
     }
-    .donation-list.show {
-      display: flex;
-      max-height: 500px;
-    }
+    .donation-list.show { display: flex; }
     .donation-list button, .donation-list a button {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      flex: 1; /* equal width */
+      text-align: center;
       padding: 12px 20px;
+      border-radius: 8px;
       background-color: #34495e;
       color: #fff;
-      border: none;
+      font-weight: bold;
       cursor: pointer;
-      width: 100%;
       transition: all 0.2s;
       text-decoration: none;
     }
-    .donation-list button:hover, .donation-list a button:hover { background-color: #3d566e; }
+    .donation-list button:hover, .donation-list a button:hover {
+      background-color: #3d566e;
+    }
     .donation-list img { width: 24px; height: 24px; }
 
     /* Footer */
@@ -167,13 +165,12 @@
       transform: scale(1.2);
       fill: #00acee;
     }
-    .footer .copyright {
-      font-size: 0.9rem;
-    }
+    .footer .copyright { font-size: 0.9rem; }
 
     @media (max-width: 768px) {
       .logo { width: 95%; }
       .launching { width: 70%; max-width: 400px; }
+      .donation-list { flex-direction: column; top: 100%; transform: translateX(-50%); } /* stack on smaller screens */
     }
     @media (max-width: 480px) {
       .logo { width: 100%; }
@@ -189,7 +186,7 @@
   <!-- Launching image -->
   <img src="launching.png" alt="We are launching soon" class="launching">
 
-  <!-- Cashtab install text under launching image -->
+  <!-- Cashtab install text -->
   <div class="cashtab-text">
     Dont Have Cashtab Wallet? <a href="https://www.cashtab.com" target="_blank">CLICK HERE</a>.
   </div>
@@ -199,17 +196,17 @@
     <div class="donate-wrapper">
       <button class="donate-btn" onclick="toggleDonationList()">Donation</button>
       <div class="donation-list" id="donationList">
-        <!-- XEC donation via Cashtab -->
+        <!-- XEC donation -->
         <a href="https://cashtab.com/#/pay-qr?address=ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
           <button>
             <img src="https://cryptologos.cc/logos/ecash-xec-logo.png?v=024" alt="XEC"> XEC
           </button>
         </a>
-        <!-- BCH donation via WalletConnect -->
+        <!-- BCH donation -->
         <button onclick="donateBCH()">
           <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/bch.png" alt="BCH"> BCH
         </button>
-        <!-- ETH donation via WalletConnect -->
+        <!-- ETH donation -->
         <button onclick="donateETH()">
           <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/color/eth.png" alt="ETH"> ETH
         </button>
@@ -251,12 +248,10 @@
       list.classList.toggle('show');
     }
 
-    // BCH donation using WalletConnect
     function donateBCH() {
       window.open("wc:bch:bitcoincash:qr6m29525y397p873pycpa4n3fxtreae9qhxjhj3dx", "_blank");
     }
 
-    // ETH donation using WalletConnect
     function donateETH() {
       window.open("wc:ethereum:0x391ffef43b676d88e6da78bf337230f6b0d39184", "_blank");
     }
