@@ -31,10 +31,10 @@
       z-index: 10;
     }
 
-    /* DOUBLE SIZE (very large) */
+    /* Set logo to 60 cm width */
     .logo {
-      width: 2000px;       /* Very large full-size version */
-      max-width: 100%;     /* Auto adjust on mobile */
+      width: 60cm;        /* Your requested size */
+      max-width: 100%;    /* Auto-resize for small devices */
       height: auto;
     }
 
@@ -52,7 +52,7 @@
     }
 
     @media (max-width: 768px) {
-      .logo { width: 95%; } /* Auto-resize smaller on mobile */
+      .logo { width: 100%; }
       .launching { width: 70%; max-width: 400px; bottom: 15px; }
     }
 
