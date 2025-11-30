@@ -5,12 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XEC ARMY NFT</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body, html {
       height: 100%;
       width: 100%;
@@ -19,7 +14,6 @@
       overflow: hidden;
       background: url('background.png') no-repeat center center/cover;
     }
-
     .top-container {
       position: absolute;
       top: 5px;
@@ -30,17 +24,14 @@
       align-items: center;
       z-index: 10;
     }
-
-    /* MASSIVE logo for large screens */
     .logo {
-      width: 2000px;   /* Very large for desktops */
-      max-width: 100%; /* Auto-resize on smaller screens */
+      width: 2000px;
+      max-width: 100%;
       height: auto;
     }
-
     .launching {
       position: absolute;
-      bottom: 100px; /* leave space for footer */
+      bottom: 100px;
       left: 50%;
       transform: translateX(-50%);
       max-width: 600px;
@@ -50,42 +41,34 @@
       display: block;
       z-index: 10;
     }
-
-    /* Footer section: two rows */
     .footer {
       position: absolute;
-      bottom: 20px; /* bottom of the page */
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
       color: #ffffff;
       z-index: 10;
     }
-
     .footer .copyright {
       font-size: 0.9rem;
-      margin-bottom: 8px; /* space between text and icons */
+      margin-bottom: 8px;
     }
-
     .footer .social-icons {
       display: flex;
       justify-content: center;
       gap: 15px;
     }
-
     .footer .social-icons a img {
       width: 32px;
       height: 32px;
-      filter: brightness(0) invert(1); /* white icons for dark background */
     }
-
     @media (max-width: 768px) {
       .logo { width: 95%; }
       .launching { width: 70%; max-width: 400px; bottom: 120px; }
       .footer .copyright { font-size: 0.8rem; }
       .footer .social-icons a img { width: 28px; height: 28px; }
     }
-
     @media (max-width: 480px) {
       .logo { width: 100%; }
       .launching { width: 80%; max-width: 300px; bottom: 130px; }
@@ -107,14 +90,17 @@
       ©️2025 Copyright XEC ARMY NFTs - All Rights Reserved
     </div>
     <div class="social-icons">
+      <!-- Twitter -->
       <a href="https://x.com/psyman169?t=QLiuszpP-0_4rpCqLwt3mg&s=09" target="_blank">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABGklEQVRYR+3XsQ3CMAwF0DPG1Q9zAnSnWyAgiFdzxGwlgkRRK7AwSkdUG9eD0t/KPN/yrN3ZvMMdYBW+AY4AJ+I9AU9H5+oDEEAo4Aw4BbCPOzQMD8NQkNiAI5iCSD3r3PXYAj/OsM7mA3f1rBQvggmZ4a4EW4A1iC2DAJ6wF0p4TzUThU+K2Qv9lVzp3vItt3y6wGo1e/pwBtwBviQeQn4BdWvl8M2+aqYDo5K/iWLPjL8p8AfvF+TDFx3O9ZAAAAAElFTkSuQmCC" alt="Twitter">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABtUlEQVRYR+2Wv0rDQBTHP7YRDfJdD3cB1lq1rBip9A2WtgfYg3SAmR/kJ0g0qZzq8Z+eP7MY73pYVihfIbR/t2dZ3Zl4LAgDqDjCMpQjEAJeIYbV17pQK0i7gOGPEO4BHmDnMPADuHREBFfX9Z+p0OsJcBvA6x/3OFKQF5DQB1YAJYh0q9A8sL4i4Af6u/QZ9F9EtAG7fgNEAvXgU/Ok3P0XHo4GnxidA3wBOHzE7dO7A8A+gLkC8MWd3MgA3swI0gZbgZ1yz6r4CcAgs8uhGHnQwAjm5yRGgY+8KgLpR1gFjIl8E6tG7CgI7wg7QBfB+4DtF/fvVnBbCPAFYhgwI8IZxI0zOgr5tIkg9b9BJoN27vgZZFxAmcK+ZcCYGmNKUL8C4Dfh9Qt6gZzEIxM5SHNjTGBvSTOWgUd3+Tv0CLh2N3k7ARu9OKi4/+A+nlI3b4nSl33AAAAAElFTkSuQmCC" alt="Twitter">
       </a>
+      <!-- Telegram -->
       <a href="https://t.me/Nabzzzz00" target="_blank">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABUklEQVRYR+3WwQnCMBAF0NE7PzO4QyJKz0GKSiLzC+CYGHMC2vA+AgkGZhggpS78Ob7+P1d+0L3k6m9tXecUABjZtJbqfYl9H/w7FAmUigZzXH7L6YF6Jo4E6yO+6TgBHAOXtM+APs5u3YAmANt4D0I4RwB9x2DPgCPh2r0NGBG0QMyDhxAmCkqC7lG6EbUQMgM3mFPoQdS1qv8WqgB+wF/gFZkfw+S8D8h/YP+2YC/7UAb+vWv4EC2AP/0AAwLqNFB9vOXK8AAAAASUVORK5CYII=" alt="Telegram">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABZUlEQVRYR+2WvQ6CMBBFz/xKkIClG0kIutAtqFXqA1UOgDZg7pE+Ax0iEIKM2c6d3w9Bf/7q7Lr2kMSxW4BE4AjwGNpDGBxH/k2ZAG0V2gD8Fp4C18aRzF4DcYH2M/8vIakTQB5GQHZ1eE0YbIW1OeQPsGLwAOgn8kgGsA+uUoNrgSgM6DmG37GUN8wALeV3d9TvYhsgqQV93MksA7gMgncQdcH3CeAdwB9hJwA/2YV/7GkTgHjT8aVYD8As8C0jltU0qKmnW0c3sH/Ah7lU9CuIGm+yjIFagRw9gEWwBhiWcEHzrkmA9cFYk8hHqJQHvoe0LZwlZ2e9COxjZQzABy9egR5hXyq2AGpBf0fTXz8jcm1+MBr53IY3N8U3MZkhnw3P/j2r6DJEnZy8KcL8AAAAASUVORK5CYII=" alt="Telegram">
       </a>
+      <!-- Gmail -->
       <a href="mailto:psyman169@gmail.com" target="_blank">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABF0lEQVRYR+2XQQrCMAxF36zwO6e6U4FrKQQK3iEfFC7q6vhS3UYHDSB0c7nY0mZm4kDnLURXYANvg3+K7gMGBG4B6E9gI4GWBDeADvE8c8AI4C3gA3i9DAA3QHOo1z4ZjF4CRsY1X9T7WR/3AvOZmfkDGLvBPc9IH6xLQHpHZn3/E4AFzYB75u0oN+R7oQf2FX0J9/YHvA+4J5J/AGT+2afWnUG2AAAAAElFTkSuQmCC" alt="Gmail">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABXklEQVRYR+2WwQ3DIAxF36w8R0jwVYkGqJ6AJkZlBv9YMu48x1gyJDE+ASqPzDk/2ZdwAQAO4I8xjIo0Qh3G3y0R8QCrQBb4D6bH4Ar4W1s5YAFcA1+AH+AoK9Uchb5F+4FoANeUvwQ+Gr0EYCXfUbgMoPcfdujBDdBhhDxIFwBu4wKcAdoZcF+aPoNME9hSeA/eBhAkc2lVwV3oHjAGoFk2pP8ZqXzJ6Xq0tUE8Ap7fS6WQqgBdwGmHroXxK7sIJMZsWe4B8g6YVco6ozY6sd6YxQDKZ0yWWiKnh8i6AQDoL9EyCkCrkGMUB6r8o1HJEwquh5OKM2gBOK1HH8fIAdwGfgO4EXwK+IXs+4Z0qOGwAAAABJRU5ErkJggg==" alt="Gmail">
       </a>
     </div>
   </div>
