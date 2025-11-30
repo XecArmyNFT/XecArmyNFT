@@ -51,20 +51,20 @@
       z-index: 10;
     }
 
-    /* Footer section */
+    /* Footer section: horizontal line */
     .footer {
       position: absolute;
       bottom: 20px; /* below launching image */
       left: 50%;
       transform: translateX(-50%);
-      text-align: center;
-      color: #ffffff;
-      font-size: 0.9rem;
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 15px;
+      color: #ffffff;
+      font-size: 0.9rem;
       z-index: 10;
+      flex-wrap: wrap; /* wrap if screen too small */
     }
 
     .footer a img {
@@ -84,7 +84,7 @@
     @media (max-width: 480px) {
       .logo { width: 100%; }
       .launching { width: 80%; max-width: 300px; bottom: 90px; }
-      .footer { font-size: 0.7rem; gap: 8px; flex-direction: column; }
+      .footer { font-size: 0.7rem; gap: 8px; }
       .footer a img { width: 18px; height: 18px; }
     }
   </style>
@@ -96,7 +96,7 @@
 
   <img src="launching.png" alt="We are launching soon" class="launching">
 
-  <!-- Footer with copyright and social icons -->
+  <!-- Footer with copyright and social icons in a single horizontal line -->
   <div class="footer">
     <span>©️2025 Copyright XEC ARMY NFTs - All Rights Reserved</span>
     <a href="https://x.com/psyman169?t=QLiuszpP-0_4rpCqLwt3mg&s=09" target="_blank">
