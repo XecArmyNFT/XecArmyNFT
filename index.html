@@ -45,7 +45,7 @@
     /* Buttons container */
     .buttons-container {
       position: absolute;
-      top: calc(50% + 220px);
+      top: calc(50% + 180px); /* slightly moved up */
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -123,6 +123,23 @@
     .donation-list button:hover, .donation-list a button:hover { background-color: #3d566e; }
     .donation-list img { width: 24px; height: 24px; }
 
+    /* Cashtab install text */
+    .cashtab-text {
+      position: absolute;
+      top: calc(50% + 270px);
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 15;
+      color: white;
+      font-size: 16px;
+    }
+    .cashtab-text a {
+      color: #b8860b;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
     /* Footer */
     .footer {
       position: absolute;
@@ -137,7 +154,7 @@
       display: flex;
       justify-content: center;
       gap: 15px;
-      margin-bottom: 8px; /* space between icons and copyright */
+      margin-bottom: 8px;
     }
     .footer .social-icons a svg {
       width: 32px;
@@ -179,7 +196,6 @@
     <div class="donate-wrapper">
       <button class="donate-btn" onclick="toggleDonationList()">Donation</button>
       <div class="donation-list" id="donationList">
-        <!-- XEC Donation opens Cashtab Send Funds page -->
         <a href="https://cashtab.com/#/pay-qr?address=ecash:qrc37zrwuewt8hsr3jf64vvlqwrrzz29euw7w24qxh" target="_blank">
           <button>
             <img src="https://cryptologos.cc/logos/ecash-xec-logo.png?v=024" alt="XEC"> XEC
@@ -196,6 +212,12 @@
     <a href="https://cashtab.com/#/token/2aa2aa3a3e9f9fd7df2273a210d474ec2a8ff7421d16e2053c2da4eea8ad60ff" target="_blank">
       <button class="raffle-btn">RAFFLE</button>
     </a>
+  </div>
+
+  <!-- Cashtab install text -->
+  <div class="cashtab-text">
+    Dont Have Cashtab Wallet? 
+    <a href="https://www.cashtab.com" target="_blank">CLICK HERE</a>.
   </div>
 
   <!-- Footer -->
