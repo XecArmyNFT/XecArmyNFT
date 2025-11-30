@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XEC ARMY NFT</title>
   <style>
-    /* Reset default margin/padding */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* Full-screen background */
     body, html {
       height: 100%;
       font-family: 'Arial', sans-serif;
@@ -25,51 +23,36 @@
       background: url('background.png') no-repeat center center/cover;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* moves content slightly up */
+      justify-content: flex-start;
       align-items: center;
-      padding-top: 5vh; /* responsive top padding */
+      padding-top: 5vh;
     }
 
     .logo {
-      max-width: 980px; /* ~26cm */
+      max-width: 980px;
       width: 80%;
       height: auto;
     }
 
     .launching {
-      margin-top: 5px; /* reduced margin to move it closer to logo */
+      margin-top: 5px;
       max-width: 600px;
-      width: 60%; /* responsive size */
+      width: 60%;
       height: auto;
+      background: transparent; /* ensure transparency */
+      display: block;
     }
 
-    /* Mobile / smaller screens adjustments */
     @media (max-width: 768px) {
-      .logo {
-        width: 90%;
-        max-width: 600px;
-      }
-      .launching {
-        width: 70%;
-        max-width: 400px;
-      }
-      .hero {
-        padding-top: 10vh;
-      }
+      .logo { width: 90%; max-width: 600px; }
+      .launching { width: 70%; max-width: 400px; }
+      .hero { padding-top: 10vh; }
     }
 
     @media (max-width: 480px) {
-      .logo {
-        width: 95%;
-        max-width: 400px;
-      }
-      .launching {
-        width: 80%;
-        max-width: 300px;
-      }
-      .hero {
-        padding-top: 12vh;
-      }
+      .logo { width: 95%; max-width: 400px; }
+      .launching { width: 80%; max-width: 300px; }
+      .hero { padding-top: 12vh; }
     }
   </style>
 </head>
